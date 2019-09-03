@@ -492,6 +492,19 @@ function(isConfirm) {
 }
 
 /// Create job 
+/// Edit category
+function categoryEdit(e){
+    $('#catTitle').html('Edit Category');
+    $('#catbtnTitle').html('Update Category');
+    var showmenu =  $(e).data('showmenu');
+    var categoryId =  $(e).data('categoryid');
+    $('#category').val($(e).data('category'));
+    $('#categoryId').val(categoryId);
+     $('input[name="showMenu"][value="' + showmenu + '"]').prop('checked', true);
+  //  $('input:radio[name='+showMenu+']').attr('checked',true);
+    $('#addCategory').modal('toggle'); 
+}//end function
+/// Edit category
 
 $("#createJob").validate({// Rules for form validation
    errorClass    : errorClass,

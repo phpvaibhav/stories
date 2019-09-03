@@ -14,7 +14,7 @@ class Category extends Common_Admin_Controller{
             $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
             
         }else{
-                $categoryId = $this->post('categoryId');
+                $categoryId = decoding($this->post('categoryId'));
                 $showMenu = $this->post('showMenu');
 				$data_val['category']       	= $this->post('category');
 				$data_val['showMenu']       	= $showMenu ? $showMenu:0;
@@ -73,11 +73,11 @@ class Category extends Common_Admin_Controller{
             $action .= "";
         if($serData->status){
 
-            $action .= '<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
+            $action .= '<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
-             $action .= '&nbsp;&nbsp;<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
+             $action .= '&nbsp;<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
-
+             $action .= '&nbsp;<a href="'.$link.'" onclick="categoryEdit(this);" data-category="'.$serData->category.'" data-showmenu="'.$serData->showMenu.'" data-categoryid="'.encoding($serData->categoryId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
       /*  $link = base_url().'vehicles/vehicleDetail/'.encoding($serData->vehicleId);
         $action .= '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'.$link.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>';*/
         
@@ -128,7 +128,7 @@ class Category extends Common_Admin_Controller{
         }
         $this->response($response);
     }//end function
-    
+  
 
 }//End Class 
 

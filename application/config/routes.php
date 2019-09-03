@@ -55,5 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['hidesignup']				= 'admin/signup';
 $route['dashboard']				= 'admin/dashboard';
 $route['categories']				= 'category';
+$route['subcategories']				= 'category/subCategory';
 $route['profile/(:any)'] = 'admin/users/userDetail/$1';
 $route['change_password/(:any)'] = 'admin/users/changePassword/$1';

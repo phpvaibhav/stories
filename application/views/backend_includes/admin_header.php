@@ -206,9 +206,9 @@
          
         <a href="<?php echo base_url('categories'); ?>" title="Categories"><i class="fa fa-lg fa-fw fa-cube"></i> <span class="menu-item-parent">Categories</span></a>
         </li> 
-        <li class="<?php echo (strtolower($this->router->fetch_class()) == "subCategory") ? "active" : "" ?>">
+        <li class="<?php echo (strtolower($this->router->fetch_class()) == "subcategories") ? "active" : "" ?>">
          
-        <a href="<?php echo base_url('subCategory'); ?>" title="Sub Categories"><i class="fa fa-lg fa-fw fa-cubes"></i> <span class="menu-item-parent">Sub Categories</span></a>
+        <a href="<?php echo base_url('subcategories'); ?>" title="Sub Categories"><i class="fa fa-lg fa-fw fa-cubes"></i> <span class="menu-item-parent">Sub Categories</span></a>
         </li>
         <li class="<?php echo (strtolower($this->router->fetch_class()) == "stories") ? "active" : "" ?>">
           <a href="<?php echo base_url('stories'); ?>" title="stories"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Stories</span></a>

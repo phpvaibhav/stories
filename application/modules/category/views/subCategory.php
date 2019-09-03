@@ -18,7 +18,7 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-cube"></i> </span>
-					<h2>Categories</h2>
+					<h2>Sub Categories</h2>
 				</header>
 				<!-- widget div-->
 				<div>
@@ -29,12 +29,12 @@
 					<!-- end widget edit box -->
 					<!-- widget content -->
 					<div class="widget-body padding">
-						<table id="category_list" class="table table-striped table-bordered table-hover" width="100%">
+						<table id="subcategory_list" class="table table-striped table-bordered table-hover" width="100%">
 							<thead>			                
 								<tr>
 									<th data-hide="phone">ID</th>
+									<th data-hide="phone">Sub Category</th>
 									<th data-hide="phone">Category</th>
-									<th data-hide="phone">Menu</th>
 									<th data-hide="phone,tablet">Status</th>
 									<th data-hide="phone,tablet">Action</th>
 								</tr>
@@ -56,7 +56,7 @@
 </section>
 <!-- end widget grid -->
 <!-- Modal -->
-<div class="modal fade" id="addCategory" tabindex="-1" role="dialog">
+<div class="modal fade" id="addsubCategory" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -64,7 +64,7 @@
 					&times;
 				</button>
 				<h4 class="modal-title">
-					<span id="catTitle">New Category</span>
+					<span id="catTitle">New Sub Category</span>
 				</h4>
 			</div>
 			<div class="modal-body">
@@ -72,7 +72,7 @@
 		<!-- widget content -->
 								<div class="widget-body no-padding">
 									
-									<form action="category/addCategory" id="categoryAddUpdate" class="smart-form" novalidate="novalidate" autocomplete="off" enctype="multipart/form-data">
+									<form action="category/addSubCategory" id="categoryAddUpdate" class="smart-form" novalidate="novalidate" autocomplete="off" enctype="multipart/form-data">
 									
 
 										<fieldset>
@@ -101,7 +101,7 @@
 										<footer>
 											<button type="submit" id="submit" class="btn btn-primary">
 												
-												<span id="catbtnTitle">Add Category</span>
+												<span id="catbtnTitle">Add Sub Category</span>
 											</button>
 										</footer>
 									</form>
