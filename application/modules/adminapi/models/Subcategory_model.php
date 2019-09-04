@@ -5,20 +5,16 @@ class Subcategory_model extends CI_Model {
 
     //var $table , $column_order, $column_search , $order =  '';
     var $table = 'subCategory';
-    var $column_order = array('c.categoryId','c.category'); //set column field database for datatable orderable
-    var $column_sel = array('c.categoryId','c.category','c.status','c.showMenu','(case when (c.status = 0) 
-        THEN "Inactive" when (c.status = 1) 
+    var $column_order = array('sc.subCategoryId','sc.subCategory','sc.categoryId','c.category'); //set column field database for datatable orderable
+    var $column_sel = array('sc.subCategoryId','sc.subCategory','c.category','sc.categoryId','sc.status','(case when (sc.status = 0) 
+        THEN "Inactive" when (sc.status = 1) 
         THEN "Active" ELSE
         "Unknown" 
-        END) as statusShow','(case when (c.showMenu = 0) 
-        THEN "No" when (c.showMenu = 1) 
-        THEN "Yes" ELSE
-        "Unknown" 
-        END) as showMenuShow'); //set column field database for datatable orderable
-    var $column_search = array('c.categoryId','c.category'); //set column field database for datatable searchable 
-    var $order = array('c.categoryId' => 'DESC');  // default order
+        END) as statusShow'); //set column field database for datatable orderable
+    var $column_search = array('sc.subCategory','c.category'); //set column field database for datatable searchable 
+    var $order = array('sc.subCategoryId' => 'DESC');  // default order
     var $where = array();
-    var $group_by = 'c.categoryId'; 
+    var $group_by = 'sc.subCategoryId'; 
 
     public function __construct(){
         parent::__construct();
@@ -32,7 +28,8 @@ class Subcategory_model extends CI_Model {
     {
         $sel_fields = array_filter($this->column_sel); 
         $this->db->select($sel_fields);
-        $this->db->from('category as c');
+        $this->db->from('subCategory as sc');
+        $this->db->join('category as c','c.categoryId=sc.categoryId');
        
         $i = 0;
         foreach ($this->column_search as $emp) // loop column 
@@ -110,7 +107,9 @@ class Subcategory_model extends CI_Model {
 
     public function count_all()
     {
-        $this->db->from($this->table);
+       // $this->db->from($this->table);
+          $this->db->from('subCategory as sc');
+        $this->db->join('category as c','c.categoryId=sc.categoryId');
          if(!empty($this->where))
             $this->db->where($this->where); 
         return $this->db->count_all_results();

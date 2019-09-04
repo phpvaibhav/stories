@@ -29,7 +29,7 @@
 					<!-- end widget edit box -->
 					<!-- widget content -->
 					<div class="widget-body padding">
-						<table id="subcategory_list" class="table table-striped table-bordered table-hover" width="100%">
+						<table id="subcategoryList" class="table table-striped table-bordered table-hover" width="100%">
 							<thead>			                
 								<tr>
 									<th data-hide="phone">ID</th>
@@ -72,30 +72,37 @@
 		<!-- widget content -->
 								<div class="widget-body no-padding">
 									
-									<form action="category/addSubCategory" id="categoryAddUpdate" class="smart-form" novalidate="novalidate" autocomplete="off" enctype="multipart/form-data">
+									<form action="category/addSubCategory" id="subcategoryAddUpdate" class="smart-form" novalidate="novalidate" autocomplete="off" enctype="multipart/form-data">
 									
 
 										<fieldset>
 											<div class="row">
-												<label class="label">Category</label>
-												<section class="col col-md-12">
-													<label class="input"> <i class="icon-append fa fa-list-alt"></i>
-														<input type="text"  name="category" placeholder="Category name" id="category" >
-													</label>
-												</section>
-												<input type="hidden" name="categoryId" value="0" id="categoryId" >
 												
+													<section class="col col-md-12">
+														<label class="input"> <i class="icon-append fa fa-list-alt"></i>
+														<input type="text"  name="subCategory" placeholder="Sub category name" id="subCategory" >
+													</label>
+													<input type="hidden" name="subCategoryId" value="0" id="subCategoryId" >
+													</section>
+												
+													<section class="col col-md-12">
+														<label class="label">Select</label>
+														<label class="select">
+														<select class="" name="categoryId" id="categoryId">
+															<option value="">Please select a category</option>
+															<?php foreach ($categories as $k => $category) {?>
+															<option value="<?php echo $category->categoryId; ?>"><?php echo $category->category; ?></option>
+															<?php }?>
+														</select>
+														<i></i>
+														</label>
+														<div class="note note-error">Please select a category</div>
+													</section>	
+												
+										
 											</div>
 
-											
-											<div class="row">
-												<label class="label">Show menu</label>
-												<div class="col col-6">
-															<label class="radio state-success"><input type="radio" name="showMenu" value="1"><i></i>Yes</label>
-															<label class="radio state-success"><input type="radio" name="showMenu" value="0"><i></i>No</label>
-												</div>
-											
-											</div>
+										
 										</fieldset>
 										
 										<footer>

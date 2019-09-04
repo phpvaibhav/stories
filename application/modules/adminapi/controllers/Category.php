@@ -128,7 +128,126 @@ class Category extends Common_Admin_Controller{
         }
         $this->response($response);
     }//end function
-  
+    public function addSubCategory_post(){
+       
+        $this->form_validation->set_rules('subCategory', 'subCategory','trim|required|is_unique[subCategory.subCategory]',
+            array('is_unique' => 'Sub Category already exist'));
+         $this->form_validation->set_rules('categoryId', 'category', 'trim|required');
+        if($this->form_validation->run() == FALSE){
+            $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
+            
+        }else{
+            
+                $subCategoryId = decoding($this->post('subCategoryId'));
+                
+                $data_val['subCategory']   = $this->post('subCategory');
+                $data_val['categoryId']    = $this->post('categoryId');
+               
+                $where = array('subCategoryId'=>$subCategoryId);
+                $isExist=$this->common_model->is_data_exists('subCategory',$where);
+                if($isExist){
+                    $result = $this->common_model->updateFields('subCategory',$data_val,$where);
+                    $msg = "Sub category record updated successfully.";
+                }else{
+                    $result = $this->common_model->insertData('subCategory',$data_val);
+                    
+                    $msg = "Sub category record added successfully.";
+                }
+                
+                if($result){
+                  
+                     $response = array('status'=>SUCCESS,'message'=>$msg);
+                }else{
+                     $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
+                } 
+             
+               
+           
+        }
+        $this->response($response);
+    }//end function 
+    public function subcategoryList_post(){
+        $this->load->helper('text');
+        $this->load->model('subcategory_model');
+        $this->subcategory_model->set_data();
+        $list = $this->subcategory_model->get_list();
+        
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $serData) { 
+        $action ='';
+        $no++;
+        $row = array();
+        $row[] = $no;
+        //$row[] = '<img src='.base_url($serData->profileImage).' alt="user profile" style="height:50px;width:50px;" >';
+        $row[] = display_placeholder_text($serData->subCategory); 
+        $row[] = display_placeholder_text($serData->category); 
+
+         
+        if($serData->status){
+        $row[] = '<label class="label label-success">'.$serData->statusShow.'</label>';
+        }else{ 
+        $row[] = '<label class="label label-danger">'.$serData->statusShow.'</label>'; 
+        } 
+            $link  ='javascript:void(0)';
+            $action .= "";
+        if($serData->status){
+
+            $action .= '<a href="'.$link.'" onclick="subcategoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->subCategoryId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
+        }else{
+             $action .= '&nbsp;<a href="'.$link.'" onclick="subcategoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->subCategoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
+        }
+             $action .= '&nbsp;<a href="'.$link.'" onclick="subcategoryEdit(this);" data-categoryId="'.$serData->categoryId.'" data-subcategory="'.$serData->subCategory.'"  data-subcategoryid="'.encoding($serData->subCategoryId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
+      /*  $link = base_url().'vehicles/vehicleDetail/'.encoding($serData->vehicleId);
+        $action .= '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'.$link.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>';*/
+        
+
+        $row[] = $action;
+        $data[] = $row;
+
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->subcategory_model->count_all(),
+            "recordsFiltered" => $this->subcategory_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+       
+        $this->response($output);
+    }//end function 
+    function subcategoryStatus_post(){
+        $subCategoryId  = decoding($this->post('use'));
+    
+        $where = array('subCategoryId'=>$subCategoryId);
+         $dataExist=$this->common_model->is_data_exists('subCategory',$where);
+        if($dataExist){
+            $status = $dataExist->status ?0:1;
+
+             $dataExist=$this->common_model->updateFields('subCategory',array('status'=>$status),$where);
+              $showmsg  =($status==1)? "Sub Category request is Active" : "Sub Category request is Inactive";
+                $response = array('status'=>SUCCESS,'message'=>$showmsg);
+        }else{
+           $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
+        }
+        $this->response($response);
+    }//end function
+    function subcategoryDelete_post(){
+        $subCategoryId  = decoding($this->post('use'));
+   
+        $where = array('subCategoryId'=>$subCategoryId);
+         $dataExist=$this->common_model->is_data_exists('subCategory',$where);
+        if($dataExist){
+              
+             $dataExist=$this->common_model->deleteData('subCategory',$where);
+              $showmsg  ='record has been deleted successfully.';
+                $response = array('status'=>SUCCESS,'message'=>$showmsg);
+        }else{
+           $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
+        }
+        $this->response($response);
+    }//end function  
 
 }//End Class 
 
