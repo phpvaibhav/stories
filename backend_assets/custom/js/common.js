@@ -785,7 +785,7 @@ $("#subcategoryAddUpdate").validate({// Rules for form validation
 
 
 
-$("#createJob").validate({// Rules for form validation
+$("#createStory").validate({// Rules for form validation
    errorClass    : errorClass,
    errorElement  : errorElement,
   highlight: function(element) {
@@ -797,19 +797,19 @@ $("#createJob").validate({// Rules for form validation
         $(element).addClass('valid');
     },
   rules : {
-    jobName : {
+    title : {
       required : true
     },
-    jobTypeId : {
+    categoryId : {
       required : true
     }, 
-    driverId : {
+    subCategoryId : {
       required : true
     },
-    customerId : {
+    authorBy : {
       required : true
     }, 
-    startDate : {
+    postedById : {
       required : true
     },
    startTime : {
@@ -823,33 +823,30 @@ $("#createJob").validate({// Rules for form validation
   },
   // Messages for form validation
   messages : {
-    jobName : {
-      required : 'Please enter your job name'
+    title : {
+      required : 'Please enter your title'
     },
-    jobTypeId : {
-      required : 'Please enter your job type',
+    categoryId : {
+      required : 'Please enter your category',
 
     },
-    driverId : {
-      required : 'Please enter your driver name',
+    subCategoryId : {
+      required : 'Please enter your sub category',
 
     }
-    ,customerId : {
-      required : 'Please enter your customer name',
+    ,authorBy : {
+      required : 'Please enter your author by',
 
     }
-    ,startDate : {
-      required : 'Please enter your start date',
+    ,postedById : {
+      required : 'Please enter your posted by',
 
     }
-    ,startTime : {
-      required : 'Please enter your start time',
+    ,ckeditor : {
+      required : 'Please enter your description',
 
     } 
-    ,address : {
-      required : 'Please enter your address',
-
-    }
+  
   },
   // Ajax form submition
   submitHandler : function(form) {
@@ -884,18 +881,18 @@ $("#createJob").validate({// Rules for form validation
   }
 });
 /*listing job */
-var job_list = $('#job_list').DataTable({ 
+var stories_list = $('#stories_list').DataTable({ 
 
               "processing": true, //Feature control the processing indicator.
               "serverSide": true, //Feature control DataTables' servermside processing mode.
               "order": [], //Initial no order.
                "lengthChange": false,
               "oLanguage": {
-               "sEmptyTable" : '<center>No job found</center>',
+               "sEmptyTable" : '<center>No story found</center>',
                 "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>' 
               },
                "oLanguage": {
-               "sZeroRecords" : '<center>No job found</center>',
+               "sZeroRecords" : '<center>No story found</center>',
                  "sSearch": '<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>' 
               },
                initComplete: function () {
@@ -904,7 +901,7 @@ var job_list = $('#job_list').DataTable({
              
               // Load data for the table's content from an Ajax source
               "ajax": {
-                  "url": base_url+"adminapi/jobs/jobList",
+                  "url": base_url+"adminapi/stories/storiesList",
                   "type": "POST",
                   "dataType": "json",
                   "headers": { 'authToken':authToken},
@@ -1017,4 +1014,48 @@ function(isConfirm) {
     //swal("Cancelled", "Your Process has been Cancelled", "error");
   }
 });
-}
+} //end function
+function getsubCategory(e){
+    var categoryId = $(e).val();
+     var list = $("#subCategoryId");
+     $(list).html("");
+    /*ajax*/
+    $.ajax({
+                 type: "POST",
+                 url: base_url+'adminapi/category/categoryWiseSubCategory',
+                 data: {categoryId:categoryId},
+                 headers: { 'authToken':authToken},
+                  cache: false,
+           beforeSend: function() {
+          
+               preLoadshow(true);
+                  },     
+                 success: function (res) {
+                   preLoadshow(false);
+                  if(res.status=='success'){
+                    console.log(res.subcategories);
+                   
+                    var items = res.subcategories;
+                    var options;
+                    options += '<optgroup label="">';
+                    $.each(items, function(index, object) {
+                        
+                        options += '<option value="' + object.subCategoryId + '">' + object.subCategory + '</option>';
+                    });
+                    options += '</optgroup>';
+
+                    $(list).html(options);
+                /*    $.each(items, function(index, item) {
+                      list.append(new Option(item.subCategory, item.subCategoryId));
+                    });*/
+                  // toastr.success(res.message, 'Success', {timeOut: 3000});
+               
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 5000});
+                  }
+                  
+                     
+                 }
+             });
+    /*ajax*/
+} //end function

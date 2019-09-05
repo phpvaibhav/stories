@@ -17,7 +17,7 @@ class Stories extends Common_Back_Controller {
         
         $data['title'] = 'Stories';
         $count = $this->common_model->get_total_count('stories');
-        $data['recordSet'] = array('<li class="sparks-info"><h5>Job<span class="txt-color-blue"><a class="anchor-btn" data-toggle="modal" data-target="#addStory"><i class="fa fa-plus-square"></i></a></span></h5></li>','<li class="sparks-info"><h5>Total Stories <span class="txt-color-darken" id="totalCust"><i class="fa fa-lg fa-fw fa fa-tasks"></i>&nbsp;'.$count.'</span></h5></li>');
+        $data['recordSet'] = array('<li class="sparks-info"><h5>Story<span class="txt-color-blue"><a class="anchor-btn" href="stories/addStory" ><i class="fa fa-plus-square"></i></a></span></h5></li>','<li class="sparks-info"><h5>Total Stories <span class="txt-color-darken" id="totalCust"><i class="fa fa-lg fa-fw fa fa-tasks"></i>&nbsp;'.$count.'</span></h5></li>');
        
   
         $this->load->admin_render('stories', $data);
@@ -27,6 +27,7 @@ class Stories extends Common_Back_Controller {
         $data['title'] = 'Story';
 
         $data['categories']       =  $this->common_model->getAll('category',array('status'=>1));
+        $data['users']       =  $this->common_model->getAll('users',array('status'=>1));
         $this->load->admin_render('addStory', $data);
     } 
     public function storyDetail(){

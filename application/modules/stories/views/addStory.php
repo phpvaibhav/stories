@@ -1,7 +1,7 @@
 <!-- START ROW -->
 <div class="row">
 	<!-- NEW COL START -->
-	<article class="col-sm-12 col-md-12 col-lg-6">	
+	<article class="col-sm-12 col-md-12 col-lg-12">	
 		<!-- Widget ID (each widget will need unique ID)-->
 		<div class="jarviswidget" id="wid-id-4" data-widget-editbutton="false" data-widget-custombutton="false" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-togglebutton="false" data-widget-fullscreenbutton="false">
 		
@@ -24,36 +24,61 @@
 				<!-- widget content -->
 				<div class="widget-body no-padding">
 					
-					<form id="createStory" class="smart-form">
+					<form id="createStory" action="stories/createStory" method="post" class="smart-form" autocomplete="off" novalidate="">
 						<fieldset>
 							<section>
-								<label class="input"> <i class="icon-append fa fa-user"></i>
+								<label class="input"> <i class="icon-append fa fa-book"></i>
 									<input type="text" name="title" placeholder="Title">
-									<b class="tooltip tooltip-bottom-right">Needed to enter the title</b> </label>
+									</label>
 							</section>
+							
 							<div class="row">
-												<section class="col col-6">
+								<section class="col col-6">
+								
+									<select style="width:100%;" class="select2" name="categoryId" data-placeholder="Please select a Sub Category" id="categoryId" onchange="getsubCategory(this);">
+										<optgroup label="">
+										<option></option>
+										<?php foreach ($categories as $k => $category) {?>
+										<option value="<?php echo $category->categoryId; ?>"><?php echo $category->category; ?></option>
+										<?php }?>
+										</optgroup>
+									</select>
+								</section>
+								<section class="col col-6">
+									<select style="width:100%;" class="select2" name="subCategoryId" data-placeholder="Please select a Sub Category" id="subCategoryId">
+										<optgroup label="">
+										<option></option>
+										
+										</optgroup>
+									</select>
+								</section>
+							</div>
+							<div class="row">
+								<section class="col col-6">
+									<label class="input"> <i class="icon-append fa fa-user"></i>
+										<input type="text" name="authorBy" placeholder="Author By">
+									</label>
+								</section>
+								<section class="col col-6">
+									<select style="width:100%;" class="select2" name="postedById" data-placeholder="Please select a user" id="postedById">
+										<optgroup label="">
+										<option></option>
+										<?php foreach ($users as $k => $user) {?>
+										<option value="<?php echo $user->id; ?>"><?php echo $user->fullName." (".($user->createdBy==1 ?'Admin':'Cusotmer').")"; ?></option>
+										<?php }?>
+										</optgroup>
+									</select>
+								</section>
+							</div>
+							
+								<section>
+									<label class="label">Description</label>
+									<textarea name="ckeditor">
 												
-												<select style="width:100%;" class="select2" name="categoryId" data-placeholder="Please select a Category">
-														<optgroup label="">
-														
-														<?php foreach ($categories as $k => $category) {?>
-														<option value="<?php echo $category->categoryId; ?>"><?php echo $category->category; ?></option>
-														<?php }?>
-														</optgroup>
-													</select>
-												</section>
-												<section class="col col-6">
-													<select style="width:100%;" class="select2" name="customerId" data-placeholder="Please select a customer">
-														<optgroup label="">
-														<option></option>
-														<?php foreach ($customers as $c => $customer) {?>
-														<option value="<?php echo $customer->id; ?>" <?php echo $job['customerId']==$customer->id? "selected='selected'":""; ?>><?php echo $customer->fullName; ?></option>
-														<?php }?>
-														</optgroup>
-													</select>
-												</section>
-											</div>
+				                			</textarea>			
+								</section>
+							
+							
 
 						
 						</fieldset>

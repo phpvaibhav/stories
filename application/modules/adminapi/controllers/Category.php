@@ -248,6 +248,18 @@ class Category extends Common_Admin_Controller{
         }
         $this->response($response);
     }//end function  
+    function categoryWiseSubCategory_post(){
+        $categoryId  = $this->post('categoryId');
+   
+        $where = array('categoryId'=>$categoryId);
+        $dataExist = $this->common_model->getAll('subCategory',$where);
+        if(!empty($dataExist)){
+            $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200),'subcategories'=>$dataExist);
+        }else{
+           $response = array('status'=>FAIL,'message'=>"Sub category not found.",'subcategories'=>array());  
+        }
+        $this->response($response);
+    }//end function  
 
 }//End Class 
 

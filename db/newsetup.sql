@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 29, 2019 at 02:18 PM
+-- Generation Time: Sep 05, 2019 at 02:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -48,7 +48,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullName`, `email`, `password`, `userType`, `profileImage`, `contactNumber`, `status`, `authToken`, `passToken`, `crd`, `upd`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, '049bdbf89905b81ca9c46c10dbbef2eebf5928eb', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-08-29 10:39:34');
+(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, 'e2ff73bb04da37e4a5d9dd15509d5d2ea04f8f81', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-05 12:42:54');
 
 -- --------------------------------------------------------
 
@@ -64,6 +64,19 @@ CREATE TABLE `category` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`categoryId`, `category`, `showMenu`, `status`, `crd`, `upd`) VALUES
+(1, 'd', 0, 1, '2019-08-29 13:30:26', '2019-08-29 13:30:26'),
+(2, 'test', 0, 1, '2019-08-29 13:32:06', '2019-08-29 13:32:06'),
+(3, 'xszcfz', 0, 1, '2019-08-29 13:36:33', '2019-08-29 13:36:33'),
+(4, 'fsdff', 1, 1, '2019-08-29 13:39:08', '2019-09-03 13:19:50'),
+(5, 'testc', 1, 1, '2019-09-03 13:15:11', '2019-09-03 13:15:11'),
+(6, 'testcfdsfds', 1, 1, '2019-09-03 13:15:52', '2019-09-03 13:15:52'),
+(7, 'fdsfssfs', 1, 1, '2019-09-03 13:18:28', '2019-09-03 13:19:39');
 
 -- --------------------------------------------------------
 
@@ -99,8 +112,6 @@ CREATE TABLE `stories` (
   `authorBy` varchar(255) NOT NULL,
   `postedBy` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:Admin,2:User,3:Anonymous',
   `postedById` bigint(20) NOT NULL,
-  `viewCount` bigint(20) NOT NULL,
-  `likeCount` bigint(20) NOT NULL,
   `isFeatured` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1: isFeatured',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1 :Active ,0 :inactive',
   `storyDate` datetime NOT NULL,
@@ -123,6 +134,13 @@ CREATE TABLE `subCategory` (
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `subCategory`
+--
+
+INSERT INTO `subCategory` (`subCategoryId`, `categoryId`, `subCategory`, `status`, `crd`, `upd`) VALUES
+(1, 2, 'resrtsdf', 1, '2019-09-04 09:10:48', '2019-09-04 09:50:15');
+
 -- --------------------------------------------------------
 
 --
@@ -137,6 +155,7 @@ CREATE TABLE `users` (
   `profileImage` text NOT NULL,
   `contactNumber` varchar(255) NOT NULL,
   `userType` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:Customer :0:Anonymous',
+  `createdBy` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:Admin,2:User,3:Anonymous',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:Active ,0:Inactive',
   `authToken` text NOT NULL,
   `passToken` text NOT NULL,
@@ -205,7 +224,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -223,7 +242,7 @@ ALTER TABLE `stories`
 -- AUTO_INCREMENT for table `subCategory`
 --
 ALTER TABLE `subCategory`
-  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
