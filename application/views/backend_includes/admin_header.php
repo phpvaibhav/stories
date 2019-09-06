@@ -216,6 +216,9 @@
       
          <li class="<?php echo (strtolower($this->router->fetch_class()) == "customers") ? "active" : "" ?>">
           <a href="<?php echo base_url('customers'); ?>" title="Customers"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Customers</span></a>
+        </li>  
+        <li class="<?php echo (strtolower($this->router->fetch_class()) == "pages") ? "active" : "" ?>">
+          <a href="<?php echo base_url('pages'); ?>" title="Pages"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">Pages</span></a>
         </li>
 
       <!--   <li class="<?php echo (strtolower($this->router->fetch_class()) == "reports") ? "active" : "" ?>">

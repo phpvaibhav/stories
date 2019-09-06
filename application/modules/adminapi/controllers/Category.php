@@ -7,9 +7,14 @@ class Category extends Common_Admin_Controller{
         $this->check_admin_service_auth();
     }
     public function addCategory_post(){
-       
-        $this->form_validation->set_rules('category', 'category', 'trim|required|is_unique[category.category]',
+            $category = $this->post('categoryId');
+        if(!empty($category)){
+            $this->form_validation->set_rules('category', 'category', 'trim|required');
+        }else{
+            $this->form_validation->set_rules('category', 'category', 'trim|required|is_unique[category.category]',
             array('is_unique' => 'Category already exist'));
+        }
+        
         if($this->form_validation->run() == FALSE){
             $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
             
@@ -22,17 +27,26 @@ class Category extends Common_Admin_Controller{
 				$where = array('categoryId'=>$categoryId);
             	$isExist=$this->common_model->is_data_exists('category',$where);
             	if($isExist){
-            		$result = $this->common_model->updateFields('category',$data_val,$where);
-            		$msg = "Category record updated successfully.";
+                    $isCat= $this->common_model->is_data_exists('category',array('category'=>$data_val['category'],'categoryId !='=>$categoryId));
+                    if(!$isCat){
+                        $result = $this->common_model->updateFields('category',$data_val,$where);
+                        $status = SUCCESS;
+                        $msg = "Category record updated successfully.";
+                    }else{
+                        $status = FAIL;
+                         $result =1;
+                        $msg = "Category already exist";
+                    }
+            		
             	}else{
             		$result = $this->common_model->insertData('category',$data_val);
-            		
+            		$status = SUCCESS;
             		$msg = "Category record added successfully.";
             	}
                 
                 if($result){
                   
-                     $response = array('status'=>SUCCESS,'message'=>$msg);
+                     $response = array('status'=>$status,'message'=>$msg);
                 }else{
                      $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
                 } 

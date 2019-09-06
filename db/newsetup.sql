@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2019 at 02:58 PM
+-- Generation Time: Sep 06, 2019 at 03:31 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -48,7 +48,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullName`, `email`, `password`, `userType`, `profileImage`, `contactNumber`, `status`, `authToken`, `passToken`, `crd`, `upd`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, 'e2ff73bb04da37e4a5d9dd15509d5d2ea04f8f81', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-05 12:42:54');
+(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, '8a3782c4fe7cb355ef5bc64d91704c75b258f2d1', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-06 13:08:50');
 
 -- --------------------------------------------------------
 
@@ -98,6 +98,28 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `pageId` bigint(20) NOT NULL,
+  `title` text NOT NULL,
+  `pageUrl` varchar(255) NOT NULL,
+  `subTitle` text NOT NULL,
+  `icon` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `metaTitle` text NOT NULL,
+  `metaKeyword` text NOT NULL,
+  `metaDescription` text NOT NULL,
+  `status` text NOT NULL COMMENT '1:Active',
+  `showMenu` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:Yes ,0:No',
+  `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stories`
 --
 
@@ -118,6 +140,13 @@ CREATE TABLE `stories` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stories`
+--
+
+INSERT INTO `stories` (`storyId`, `categoryId`, `subcategoryId`, `title`, `tag`, `description`, `featuredImage`, `authorBy`, `postedBy`, `postedById`, `isFeatured`, `status`, `storyDate`, `crd`, `upd`) VALUES
+(1, 2, 1, 'Test', '', '<p>fdsfsfgdgd</p>\r\n', '', '1', 1, 0, 0, 1, '1970-01-01 00:00:00', '2019-09-05 13:09:51', '2019-09-05 13:09:51');
 
 -- --------------------------------------------------------
 
@@ -167,6 +196,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fullName`, `email`, `password`, `profileImage`, `contactNumber`, `userType`, `createdBy`, `status`, `authToken`, `passToken`, `deviceType`, `deviceToken`, `verifyEmail`, `crd`, `upd`) VALUES
+(1, 'Admn', 'a@admin.com', '123456', '', '43536466', 1, 1, 1, '', '', 0, '', 0, '2019-09-05 13:07:15', '2019-09-05 13:07:15');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -188,6 +224,12 @@ ALTER TABLE `category`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`commentId`),
   ADD KEY `storyId` (`storyId`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`pageId`);
 
 --
 -- Indexes for table `stories`
@@ -233,10 +275,16 @@ ALTER TABLE `comments`
   MODIFY `commentId` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `pageId` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyId` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `storyId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subCategory`
@@ -248,7 +296,7 @@ ALTER TABLE `subCategory`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

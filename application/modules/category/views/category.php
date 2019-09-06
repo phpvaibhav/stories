@@ -86,16 +86,27 @@
 												<input type="hidden" name="categoryId" value="0" id="categoryId" >
 												
 											</div>
-
+											<section>
+									<label class="label">Show menu</label>
+									<div class="inline-group">
+										<label class="radio">
+											<input type="radio" name="radio-inline"  name="showMenu" value="1" >
+											<i></i>Yes</label>
+										<label class="radio">
+											<input type="radio" name="radio-inline" name="showMenu" value="0" checked="checked">
+											<i></i>No</label>
+										
+									</div>
+								</section>
 											
-											<div class="row">
+										<!-- 	<div class="row">
 												<label class="label">Show menu</label>
 												<div class="col col-6">
 															<label class="radio state-success"><input type="radio" name="showMenu" value="1"><i></i>Yes</label>
 															<label class="radio state-success"><input type="radio" name="showMenu" value="0"><i></i>No</label>
 												</div>
 											
-											</div>
+											</div> -->
 										</fieldset>
 										
 										<footer>
