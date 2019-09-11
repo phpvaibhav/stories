@@ -7,7 +7,7 @@
 		
 			<header>
 				<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-				<h2>Add</h2>				
+				<h2><?php echo $page['pageId'] ?'Edit':'Add'; ?></h2>				
 				
 			</header>
 
@@ -23,7 +23,7 @@
 				
 				<!-- widget content -->
 				<div class="widget-body no-padding">
-					
+				
 						<form action="pages/addPage" id="pageAddUpdate" class="smart-form" novalidate="novalidate" autocomplete="off" enctype="multipart/form-data">
 									
 
@@ -33,10 +33,10 @@
 									<section class="col col-md-12">
 										<label class="label">Title</label>
 										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
-											<input type="text"  name="title" placeholder="Title" id="title" >
+											<input type="text"  name="title" placeholder="Title" value="<?php echo $page['title']; ?>" id="title" >
 										</label>
 									</section>
-									<input type="hidden" name="pageId" value="0" id="pageId" >
+									<input type="hidden" name="pageId" value="<?php echo encoding($page['pageId']); ?>" id="pageId" >
 									
 								</div>
 							
@@ -45,7 +45,7 @@
 										<label class="label">Sub Title</label>
 								
 										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
-											<input type="text"  name="subTitle" placeholder="Sub Title" id="subTitle" >
+											<input type="text"  name="subTitle" placeholder="Sub Title"  value="<?php echo $page['subTitle']; ?>" id="subTitle" >
 										</label>
 									
 									</section>
@@ -53,27 +53,46 @@
 											<label class="label">Icon</label>
 								
 										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
-											<input type="text"  name="icon" placeholder="fa fa-icon" id="icon" >
+											<input type="text"  name="icon" placeholder="fa fa-icon" id="icon"  value="<?php echo $page['icon']; ?>" >
 										</label>
 									</section>
+								</div>
+								<div class="row">
+									
+									<section class="col col-md-12">
+										<label class="label">Meta  Title</label>
+										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
+											<input type="text"  name="metaTitle" placeholder="Meta Title"  value="<?php echo $page['metaTitle']; ?>" id="metaTitle" >
+										</label>
+									</section>
+									<section class="col col-md-12">
+										<label class="label">Meta  Keyword</label>
+										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
+											<input type="text"  name="metaKeyword" placeholder="Meta Keyword" id="metaKeyword" value="<?php echo $page['metaKeyword']; ?>" >
+										</label>
+									</section>
+									<section class="col col-md-12">
+										<label class="label">Meta  Description</label>
+										<textarea name="metaDescription" class="form-control" placeholder="Meta  Description" rows="3"><?php echo $page['metaDescription']; ?></textarea>
+									</section>
+									
+									
 								</div>
 								<section>
 									<label class="label">Show menu</label>
 									<div class="inline-group">
 										<label class="radio">
-											<input type="radio" name="radio-inline"  name="showMenu" value="1" >
+											<input type="radio" name="showMenu" value="1" <?php echo $page['showMenu']==1?"checked='checked'":""; ?> >
 											<i></i>Yes</label>
 										<label class="radio">
-											<input type="radio" name="radio-inline" name="showMenu" value="0" checked="checked">
+											<input type="radio"  name="showMenu" value="0" <?php echo $page['showMenu']==0?"checked='checked'":""; ?>>
 											<i></i>No</label>
 										
 									</div>
 								</section>
 								<section>
 								<label class="label">Description</label>
-									<textarea name="ckeditor">
-
-									</textarea>			
+									<textarea name="ckeditor"><?php echo $page['description']; ?></textarea>			
 								</section>
 								
 							
@@ -81,7 +100,7 @@
 							
 							<footer>
 								<button type="submit" id="submit" class="btn btn-primary">
-									<span id="catbtnTitle">Add Page</span>
+									<span id="catbtnTitle"><?php echo $page['pageId'] ?'Update Page':'Add Page'; ?></span>
 								</button>
 							</footer>
 						</form>

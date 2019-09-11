@@ -1,38 +1,65 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 //General service API class 
-class Category extends Common_Admin_Controller{
+class Pages extends Common_Admin_Controller{
     
     public function __construct(){
         parent::__construct();
         $this->check_admin_service_auth();
     }
     public function addPage_post(){
-       
-        $this->form_validation->set_rules('category', 'category', 'trim|required|is_unique[category.category]',
-            array('is_unique' => 'Category already exist'));
+       $pageId  = decoding($this->post('pageId'));
+    
+      
+        $this->form_validation->set_rules('ckeditor', 'description', 'trim|required'); 
+        if(!empty($pageId)){
+            $this->form_validation->set_rules('title', 'title', 'trim|required');
+        }else{
+            $this->form_validation->set_rules('title', 'title', 'trim|required|is_unique[pages.title]',
+            array('is_unique' => 'title already exist'));
+        }
+      
         if($this->form_validation->run() == FALSE){
             $response = array('status' => FAIL, 'message' => strip_tags(validation_errors()));
             
         }else{
-                $categoryId = decoding($this->post('categoryId'));
+                $pageId = decoding($this->post('pageId'));
                 $showMenu = $this->post('showMenu');
-				$data_val['category']       	= $this->post('category');
-				$data_val['showMenu']       	= $showMenu ? $showMenu:0;
-			
-				$where = array('categoryId'=>$categoryId);
-            	$isExist=$this->common_model->is_data_exists('category',$where);
+                $title = $this->post('title');
+                $data_val['title']              = $title;
+                $data_val['pageUrl']            = str_ireplace(" ","-",$title);
+
+                $data_val['subTitle']           = $this->post('subTitle');
+                $data_val['description']        = $this->post('ckeditor');
+                $data_val['icon']               = $this->post('icon');
+                $data_val['metaTitle']          = $this->post('metaTitle');
+                $data_val['metaKeyword']        = $this->post('metaKeyword');
+                $data_val['metaDescription']    = $this->post('metaDescription');
+                $data_val['showMenu']           = $showMenu ? $showMenu :0;
+                
+				$where = array('pageId'=>$pageId);
+            	$isExist=$this->common_model->is_data_exists('pages',$where);
             	if($isExist){
-            		$result = $this->common_model->updateFields('category',$data_val,$where);
-            		$msg = "Category record updated successfully.";
-            	}else{
-            		$result = $this->common_model->insertData('category',$data_val);
+                    $isTitle = $this->common_model->is_data_exists('pages',array('title'=>$title,'pageId !='=>$pageId));
+                    if(!$isTitle){
+
+                        $result = $this->common_model->updateFields('pages',$data_val,$where);
+                        $status = SUCCESS;
+                        $msg = "Page record updated successfully."; 
+                    }else{
+                         $result = 1;
+                          $status = FAIL;
+                          $msg = "title already exist."; 
+                    }
             		
-            		$msg = "Category record added successfully.";
+            	}else{
+            		$result = $this->common_model->insertData('pages',$data_val);
+            		 $status = SUCCESS;
+            		$msg = "Page record added successfully.";
             	}
                 
                 if($result){
                   
-                     $response = array('status'=>SUCCESS,'message'=>$msg);
+                     $response = array('status'=>$status,'message'=>$msg);
                 }else{
                      $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
                 } 
@@ -43,11 +70,11 @@ class Category extends Common_Admin_Controller{
         $this->response($response);
     }//end function 
 
-    public function categoryList_post(){
+    public function pageList_post(){
         $this->load->helper('text');
-        $this->load->model('category_model');
-        $this->category_model->set_data();
-        $list = $this->category_model->get_list();
+        $this->load->model('page_model');
+        $this->page_model->set_data();
+        $list = $this->page_model->get_list();
         
         $data = array();
         $no = $_POST['start'];
@@ -57,7 +84,8 @@ class Category extends Common_Admin_Controller{
         $row = array();
         $row[] = $no;
         //$row[] = '<img src='.base_url($serData->profileImage).' alt="user profile" style="height:50px;width:50px;" >';
-        $row[] = display_placeholder_text($serData->category); 
+        $row[] = display_placeholder_text($serData->title); 
+        $row[] = display_placeholder_text($serData->subTitle); 
 
         if($serData->showMenu){
         $row[] = '<label class="label label-success">'.$serData->showMenuShow.'</label>';
@@ -73,11 +101,14 @@ class Category extends Common_Admin_Controller{
             $action .= "";
         if($serData->status){
 
-            $action .= '<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
+            $action .= '<a href="'.$link.'" onclick="pageStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
-             $action .= '&nbsp;<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
+             $action .= '&nbsp;<a href="'.$link.'" onclick="pageStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
-             $action .= '&nbsp;<a href="'.$link.'" onclick="categoryEdit(this);" data-category="'.$serData->category.'" data-showmenu="'.$serData->showMenu.'" data-categoryid="'.encoding($serData->categoryId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
+        $detailUrl = base_url().'pages/addPage/'.encoding($serData->pageId);
+             $action .= '&nbsp;<a href="'.$detailUrl.'"  data-pageId="'.encoding($serData->pageId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
+             
+              $action .= '&nbsp;<a href="'.$link.'" onclick="pageDelete(this);" data-message="You want to delete this page!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-warning btn-circle" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>';
       /*  $link = base_url().'vehicles/vehicleDetail/'.encoding($serData->vehicleId);
         $action .= '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'.$link.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>';*/
         
@@ -89,38 +120,38 @@ class Category extends Common_Admin_Controller{
 
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->category_model->count_all(),
-            "recordsFiltered" => $this->category_model->count_filtered(),
+            "recordsTotal" => $this->page_model->count_all(),
+            "recordsFiltered" => $this->page_model->count_filtered(),
             "data" => $data,
         );
         //output to json format
        
         $this->response($output);
     }//end function 
-    function categoryStatus_post(){
-        $categoryId  = decoding($this->post('use'));
+    function pageStatus_post(){
+        $pageId  = decoding($this->post('use'));
     
-        $where = array('categoryId'=>$categoryId);
-         $dataExist=$this->common_model->is_data_exists('category',$where);
+        $where = array('pageId'=>$pageId);
+         $dataExist=$this->common_model->is_data_exists('pages',$where);
         if($dataExist){
             $status = $dataExist->status ?0:1;
 
-             $dataExist=$this->common_model->updateFields('category',array('status'=>$status),$where);
-              $showmsg  =($status==1)? "Category request is Active" : "Category request is Inactive";
+             $dataExist=$this->common_model->updateFields('pages',array('status'=>$status),$where);
+              $showmsg  =($status==1)? "Page request is Active" : "Page request is Inactive";
                 $response = array('status'=>SUCCESS,'message'=>$showmsg);
         }else{
            $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));  
         }
         $this->response($response);
     }//end function
- 	function categoryDelete_post(){
-        $categoryId  = decoding($this->post('use'));
+ 	function pageDelete_post(){
+        $pageId  = decoding($this->post('use'));
    
-        $where = array('categoryId'=>$categoryId);
-         $dataExist=$this->common_model->is_data_exists('category',$where);
+        $where = array('pageId'=>$pageId);
+         $dataExist=$this->common_model->is_data_exists('pages',$where);
         if($dataExist){
               
-             $dataExist=$this->common_model->deleteData('category',$where);
+             $dataExist=$this->common_model->deleteData('pages',$where);
               $showmsg  ='record has been deleted successfully.';
                 $response = array('status'=>SUCCESS,'message'=>$showmsg);
         }else{

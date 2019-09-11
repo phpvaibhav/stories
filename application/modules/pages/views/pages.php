@@ -35,7 +35,6 @@
 									<th data-hide="phone">ID</th>
 									<th data-hide="phone">title</th>
 									<th data-hide="phone">sub Title</th>
-									<th data-hide="phone">Description</th>
 									<th data-hide="phone,tablet">Show Menu</th>
 									<th data-hide="phone,tablet">Status</th>
 									<th data-hide="phone,tablet">Action</th>

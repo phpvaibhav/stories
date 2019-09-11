@@ -23,7 +23,10 @@ class Pages extends Common_Back_Controller {
     public function addPage() { 
         
         $data['title'] = 'Page';
-       
+         $pageId  = decoding($this->uri->segment(3));
+    
+        $where = array('pageId'=>$pageId);
+        $data['page'] = $this->common_model->getsingle('pages',$where);
     
         $this->load->admin_render('addPage', $data);
     } 

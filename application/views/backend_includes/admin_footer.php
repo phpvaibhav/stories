@@ -186,6 +186,11 @@
  <script src="<?php echo $backend_assets; ?>admin/js/user.js"></script>
  <script src="<?php echo $backend_assets; ?>custom/js/custom.js"></script>
  <script src="<?php echo $backend_assets; ?>custom/js/common.js"></script>
+ <script src="<?php echo $backend_assets; ?>custom/js/customer.js"></script>
+ <script src="<?php echo $backend_assets; ?>custom/js/category.js"></script>
+ <script src="<?php echo $backend_assets; ?>custom/js/stories.js"></script>
+ <script src="<?php echo $backend_assets; ?>custom/js/pages.js"></script>
+
 <script>
     
     // DO NOT REMOVE : GLOBAL FUNCTIONS!
