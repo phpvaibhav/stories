@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		print_r($_SERVER['REMOTE_ADDR']);
 		$this->load->view('welcome_message');
 	}
 }

@@ -34,8 +34,12 @@
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo $backend_assets; ?>css/demo.min.css">
 
     <!-- #FAVICONS -->
-    <link rel="shortcut icon" href="<?php echo $backend_assets; ?>img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="<?php echo $backend_assets; ?>img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $backend_assets; ?>img/favicon/favicon.ico" type="image/x-icon" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $frontend_assets; ?>img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $frontend_assets; ?>img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $frontend_assets; ?>img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo $frontend_assets; ?>img/favicon/site.webmanifest">
 
     <!-- #GOOGLE FONT -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">

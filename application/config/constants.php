@@ -108,9 +108,9 @@ define('ADMIN_AVATAR_PATH', 'uploads/admin/'); //user avatar
 define('ADMIN_DEFAULT_AVATAR', 'backend_assets/img/avatars/avatar5.png'); //user placeholder image
 
 //Title, Site name, Copyright etc
-define('SITE_NAME','New Setup'); //your project name
-define('COPYRIGHT','&copy; ' . date('Y'). ', New Setup. All rights reserved.');
-define('INFO_EMAIL','info@project.com'); //your project name
+define('SITE_NAME','LojanLo'); //your project name
+define('COPYRIGHT','&copy; ' . date('Y'). ',LoJANLO. All rights reserved.');
+define('INFO_EMAIL','info@lojanlo.com'); //your project name
 
 
 //common messages
