@@ -32,7 +32,7 @@
     <!-- Colors for this template -->
     <link href="<?php echo $frontend_assets; ?>css/colors.css" rel="stylesheet">
     <!-- Version Tech CSS for this template -->
-    <link href="<?php echo $frontend_assets; ?>css/version/tech.css" rel="stylesheet">
+    <link href="<?php echo $frontend_assets; ?>css/version/lojanlo.css" rel="stylesheet">
     <!-- Dynamic css add -->
     <?php if(!empty($front_styles)) { load_css($front_styles); } //load required page styles ?>
     <!--[if lt IE 9]>

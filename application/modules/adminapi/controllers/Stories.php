@@ -21,38 +21,66 @@ class Stories extends Common_Admin_Controller{
             
         }
         else{
-      
-                $data_val['title']              = $this->post('title');
-                $data_val['categoryId']         = $this->post('categoryId');
-                $data_val['subCategoryId']      = $this->post('subCategoryId');
-                $data_val['authorBy']           = $this->post('authorBy');
-                $data_val['postedById']         = $this->post('postedById');
-                $data_val['description']        = $this->post('ckeditor');
-                $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
-               
-               
-                $storyId  = decoding($this->post('storyId'));
+            $storyId  = decoding($this->post('storyId'));
+            $data_val['title']              = $this->post('title');
+            $data_val['categoryId']         = $this->post('categoryId');
+            $data_val['subCategoryId']      = $this->post('subCategoryId');
+            $data_val['authorBy']           = $this->post('authorBy');
+            $data_val['postedById']         = $this->post('postedById');
+            $data_val['description']        = $this->post('ckeditor');
+            $data_val['isFeatured']         = $this->post('isFeatured');
+            $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
+           /*image uploads*/
+            $storyId  = decoding($this->post('storyId'));
+            $where = array('storyId'=>$storyId);
+            $isExist=$this->common_model->is_data_exists('stories',$where);
+                   
 
-                $where = array('storyId'=>$storyId);
-                $isExist=$this->common_model->is_data_exists('stories',$where);
-                if($isExist){
-                    $result = $this->common_model->updateFields('stories',$data_val,$where);
-                    $msg = "story record updated successfully.";
-                }else{
-                    $result = $this->common_model->insertData('stories',$data_val);
-                    
-                    $msg = "Story created successfully.";
-                }
-                //$jobId = $this->common_model->insertData('jobs',$data_val);
-                if($result){
-                 
-                     $response = array('status'=>SUCCESS,'message'=>$msg);
-                }else{
-                     $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
-                } 
-              
-               
+                    $image = array(); $featuredImage = '';
+                    if (!empty($_FILES['featuredImage']['name'])) {
+                         $this->load->model('image_model');
+                    $folder     = 'stories';
+                    $image      = $this->image_model->upload_image('featuredImage',$folder); //upload media of Seller
+
+                    //check for error
+                    if(array_key_exists("error",$image) && !empty($image['error'])){
+                        $response = array('status' => FAIL, 'message' => strip_tags($image['error'].'(In featured image)'));
+                       $this->response($response);die;
+                    }
+
+                    //check for image name if present
+                    if(array_key_exists("image_name",$image)):
+                        $featuredImage = $image['image_name'];
+                          if(!empty($isExist->featuredImage)){
+                             $this->image_model->delete_image('uploads/stories/',$isExist->featuredImage);
+                          }
+                       
+                    endif;
+
+                    }
+                    if(!empty($featuredImage)){
+                        $data_val['featuredImage']           =   $featuredImage;
+                    }
+           /*image uploads*/
            
+          
+           // $isExist=$this->common_model->is_data_exists('stories',$where);
+
+            if($isExist){
+                $result = $this->common_model->updateFields('stories',$data_val,$where);
+                $msg = "Story record updated successfully.";
+            }else{
+                $result = $this->common_model->insertData('stories',$data_val);
+                
+                $msg = "Story created successfully.";
+            }
+            //$jobId = $this->common_model->insertData('jobs',$data_val);
+            if($result){
+             
+                 $response = array('status'=>SUCCESS,'message'=>$msg);
+            }else{
+                 $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
+            } 
         }
         $this->response($response);
     }//end function
@@ -95,7 +123,7 @@ class Stories extends Common_Admin_Controller{
             $link  ='javascript:void(0)';
             $action .= "";
        
-        $userLink = base_url().'jobs/jobDetail/'.encoding($serData->storyId);
+        $userLink = base_url().'stories/storyDetail/'.encoding($serData->storyId);
        // $userLink = "javascript:void(0);";
         $action .= '&nbsp;&nbsp;<a href="'.$userLink.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
           $pdfLink = base_url().'jobs/jobDetailPdf/'.encoding($serData->storyId);

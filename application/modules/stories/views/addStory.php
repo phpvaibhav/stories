@@ -24,7 +24,7 @@
 				<!-- widget content -->
 				<div class="widget-body no-padding">
 					
-					<form id="createStory" action="stories/createStory" method="post" class="smart-form" autocomplete="off" novalidate="">
+					<form id="createStory" action="stories/createStory" method="post" class="smart-form" autocomplete="off" enctype="multipart/form-data" novalidate="">
 						<fieldset>
 							<section>
 								<label class="input"> <i class="icon-append fa fa-book"></i>
@@ -73,13 +73,30 @@
 							
 								<section>
 									<label class="label">Description</label>
-									<textarea name="ckeditor">
-												
-				                			</textarea>			
+									<textarea name="ckeditor"></textarea>			
 								</section>
 							
-							
+								<div class="row">
+									<section class="col col-md-12">
+										<div class="input input-file">
+										<span class="button"><input type="file" name="featuredImage" id="file" onchange="this.parentNode.nextSibling.value = this.value" accept="image/*" placeholder="Featured image">Browse</span><input type="text" placeholder="Featured image" readonly="">
+										</div>
 
+									</section>
+									
+								</div>
+									<section>
+									<label class="label">Is Featured</label>
+									<div class="inline-group">
+										<label class="radio">
+											<input type="radio" name="radio-inline"  name="isFeatured" value="1" >
+											<i></i>Yes</label>
+										<label class="radio">
+											<input type="radio" name="radio-inline" name="isFeatured" value="0" checked="checked">
+											<i></i>No</label>
+										
+									</div>
+								</section>
 						
 						</fieldset>
 
@@ -87,9 +104,7 @@
 							
 						</fieldset>
 						<footer>
-							<button type="submit" id="submit" class="btn btn-primary">
-								Add
-							</button>
+							<button type="submit" id="submit" class="btn btn-primary">Add</button>
 						</footer>
 					</form>						
 				</div>

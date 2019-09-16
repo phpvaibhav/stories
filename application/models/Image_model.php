@@ -16,7 +16,7 @@ class Image_model extends CI_Model{
         //add folder name
         $img_sizes = array();
         $img_sizes['thumbnail'] = array('width'=>150, 'height'=>150, 'folder'=>'/thumb');
-        $img_sizes['medium'] = array('width'=>600, 'height'=>600, 'folder'=>'/medium');
+        $img_sizes['medium'] = array('width'=>600, 'height'=>400, 'folder'=>'/medium');
         return $img_sizes;
     }
     
@@ -42,7 +42,7 @@ class Image_model extends CI_Model{
      * Upload image and create resized copies
      * Modified in ver 2.0
      */
-    function upload_image( $image, $folder, $height=768, $width=1024, $path=FALSE ){
+    function upload_image( $image, $folder, $height=533.33, $width=800, $path=FALSE ){
         
         $this->make_dirs($folder);
         
@@ -61,7 +61,7 @@ class Image_model extends CI_Model{
                 'file_name'         => $img_name,
                 'overwrite'	    => FALSE,
                 'remove_spaces'	    => TRUE,
-                'quality'           => '100%',
+                'quality'           => '80%',
             );
 		
         $this->load->library('upload'); //upload library
@@ -104,7 +104,7 @@ class Image_model extends CI_Model{
             $resize['maintain_ratio']     = FALSE;
             $resize['width'] 	      = $v['width'];
             $resize['height'] 	      = $v['height'];
-            $resize['quality'] 	      = '100%';
+            $resize['quality'] 	      = '50%';
 
             $this->image_lib->initialize($resize);
             $this->image_lib->resize();   //create resized copies
@@ -118,7 +118,7 @@ class Image_model extends CI_Model{
         $resize1['maintain_ratio'] 	= FALSE;
         $resize1['width']           = $width;
         $resize1['height'] 		= $height;
-        $resize1['quality']         = '100%';
+        $resize1['quality']         = '60%';
 
         $this->image_lib->initialize($resize1);
         $this->image_lib->resize();

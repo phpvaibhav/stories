@@ -64,7 +64,7 @@ $("#createStory").validate({// Rules for form validation
   
   },
   // Ajax form submition
-  submitHandler : function(form) {
+/*  submitHandler : function(form) {
     toastr.clear();
        $('#submit').prop('disabled', true);
       $.ajax({
@@ -89,12 +89,49 @@ $("#createStory").validate({// Rules for form validation
         }
       });
      return false; // required to block normal submit since you used ajax
-  },
+  },*/
   // Do not change code below
   errorPlacement : function(error, element) {
     error.insertAfter(element.parent());
   }
 });
+/*Add */
+$(document).on('submit', "#createStory", function (event) {
+ 
+ /*add*/
+     toastr.clear();
+    event.preventDefault();
+    var formData = new FormData(this);
+    $.ajax({
+        type: "POST",
+        url: base_url+'adminapi/'+$(this).attr('action'),
+        headers: { 'authToken': authToken },
+        data: formData, //only input
+        processData: false,
+        contentType: false,
+        cache: false,
+            beforeSend: function () {
+               preLoadshow(true);
+            $('#submit').prop('disabled', true);
+            },
+          success: function (res) {
+             preLoadshow(false);
+                   setTimeout(function(){  $('#submit').prop('disabled', false); },4000);
+                  if(res.status=='success'){
+                   toastr.success(res.message, 'Success', {timeOut: 3000});
+                  setTimeout(function(){ window.location = base_url+'stories'; },4000);
+                   
+                  }else{
+                    toastr.error(res.message, 'Alert!', {timeOut: 4000});
+                  }
+                  
+                    
+                 }
+    });
+
+ /*add*/
+});
+/*Add */
 /*listing job */
 var stories_list = $('#stories_list').DataTable({ 
 

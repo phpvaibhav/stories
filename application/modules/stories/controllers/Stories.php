@@ -35,12 +35,11 @@ class Stories extends Common_Back_Controller {
         $storyId  = decoding($this->uri->segment(3));
 
         $data['title'] = "Story Detail";
-         $data['recordSet'] = array('<li class="sparks-info"><h5>PDF<span class="txt-color-blue"><a class="anchor-btn" href="'.base_url().'jobs/jobDetailPdf/'.$this->uri->segment(3).'" target="_blank" ><i class="fa fa-file-pdf-o"></i></a></span></h5></li>');
+       /*  $data['recordSet'] = array('<li class="sparks-info"><h5>PDF<span class="txt-color-blue"><a class="anchor-btn" href="'.base_url().'jobs/jobDetailPdf/'.$this->uri->segment(3).'" target="_blank" ><i class="fa fa-file-pdf-o"></i></a></span></h5></li>');*/
         $where = array('storyId'=>$storyId);
         $this->load->model('stories_model');
-        $data['job'] = $this->stories_model->storyDetail($storyId);
-      
-       
+        $data['story'] = $this->stories_model->storyDetail($storyId);
+    
         $this->load->admin_render('storyDetail', $data, '');
     } //end function
 
