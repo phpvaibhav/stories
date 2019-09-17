@@ -273,21 +273,23 @@
 
         <!-- breadcrumb -->
           <?php
-            $segmentSearch   = array('-', '/', '_');
+         /*   $segmentSearch   = array('-', '/', '_');
             $segmentReplace  = array(' ', ' ', ' ');
             $segments        = $this->uri->segment_array();
             $segmentCount    = count($this->uri->segment_array());
+            $foreach_count =0;*/
           ?>      
                
 
         <ol class="breadcrumb">
           <!-- <li>Home</li><li>Miscellaneous</li><li>Blank Page</li> -->
-          <?php  foreach ($segments as $segment) {
+       <!--    <?php  foreach ($segments as $segment) {
+
           if ($foreach_count >= $segmentCount) { ?> 
                <li class='breadcrumb-item active'><?php echo ucfirst(str_replace($segmentSearch, $segmentReplace, $segment)); ?></li>;
             <?php  } else {  $last_segment = $last_segment . '/' . $segment; ?>
              <li class='breadcrumb-item'><a href='<?php echo base_url($last_segment); ?>'><?php  echo ucfirst(str_replace($segmentSearch, $segmentReplace, $segment)); ?></a></li>
-            <?php   }$foreach_count+=1;} ?>
+            <?php   }$foreach_count+=1;} ?> -->
         
         </ol>
         <!-- end breadcrumb -->
