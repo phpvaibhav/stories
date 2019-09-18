@@ -35,7 +35,7 @@ h5 {
 
 .navbar-inverse .navbar-nav .nav-link,
 .navbar-nav .nav-link {
-    color: #ffffff !important;
+    color: #0e0e0e !important;
     font-size: 13px;
     font-weight: 500;
     line-height: 1;
@@ -196,7 +196,7 @@ h5 {
 }
 
 .footer {
-    background-color: #000000;
+    background-color: #4e4a4a;
     background-image: none;
 }
 
@@ -215,7 +215,9 @@ h5 {
 .footer .link-widget li {
     border-color: #444;
 }
-
+.copyright{
+    color:#fafa !important;;
+}
 .trend-videos h4 {
     font-size: 16px;
     line-height: 1.4;
@@ -277,14 +279,16 @@ a:focus {
 .btn:hover,
 .btn:focus {
     color: #ffffff !important;
-    background: rgba(0, 0, 0, 0) linear-gradient(to right, #19e500 0px, #00b7e5 100%) repeat scroll 0 0 !important
+   /* background: rgba(0, 0, 0, 0) linear-gradient(to right, #19e500 0px, #00b7e5 100%) repeat scroll 0 0 !important*/
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, #2c213585 0px, #00b7e5 100%) repeat scroll 0 0 !important
 }
 
 .tag-cloud-single span,
 .navbar-inverse {
     color: #ffffff !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    background: rgba(0, 0, 0, 0) linear-gradient(to right, #19e500 0px, #00b7e5 100%) repeat scroll 0 0 !important
+    /* background: rgba(0, 0, 0, 0) linear-gradient(to right, #19e500 0px, #00b7e5 100%) repeat scroll 0 0 !important*/
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, #F4F4F4  0px, #F4F4F4  100%) repeat scroll 0 0 !important
 }
 
 .gp-button.btn-primary:hover,

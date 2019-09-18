@@ -109,7 +109,7 @@ define('ADMIN_DEFAULT_AVATAR', 'backend_assets/img/avatars/avatar5.png'); //user
 
 //Title, Site name, Copyright etc
 define('SITE_NAME','LojanLo'); //your project name
-define('COPYRIGHT','&copy; ' . date('Y'). ',LoJANLO. All rights reserved.');
+define('COPYRIGHT','&copy; ' . date('Y'). ' LojanLo. All rights reserved');
 define('INFO_EMAIL','info@lojanlo.com'); //your project name
 
 

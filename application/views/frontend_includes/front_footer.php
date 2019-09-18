@@ -6,24 +6,30 @@
                 <div class="col-lg-7">
                     <div class="widget">
                         <div class="footer-text text-left">
-                            <a href="index.html"><img src="<?php echo $frontend_assets; ?>images/version/full-logo.png" alt="" class="img-fluid"></a>
-                            <p>Tech Blog is a technology blog, we sharing marketing, news and gadget articles.</p>
+                            <a href="<?php echo base_url(); ?>"><img src="<?php echo $frontend_assets; ?>images/version/full-logo.png" alt="" class="img-fluid"></a>
+                            <p>Lojanlo is a sharing blog, we sharing stories, news and articles.</p>
                             <div class="social">
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube-square"></i></a>
+                                
                             </div>
 
                             <hr class="invis">
-
-                            <div class="newsletter-widget text-left">
+  <div class="link-widget">
+                            <ul>
+                                <li><a href="#">Recent <span>(21)</span></a></li>
+                                <li><a href="#">Featured  <span>(15)</span></a></li>
+                             
+                            </ul>
+                        </div>
+                          <!--   <div class="newsletter-widget text-left">
                                 <form class="form-inline">
                                     <input type="text" class="form-control" placeholder="Enter your email address">
                                     <button type="submit" class="btn btn-primary">SUBMIT</button>
                                 </form>
-                            </div><!-- end newsletter -->
+                            </div> --><!-- end newsletter -->
                         </div><!-- end footer-text -->
                     </div><!-- end widget -->
                 </div><!-- end col -->
@@ -48,11 +54,12 @@
                         <h2 class="widget-title">Copyrights</h2>
                         <div class="link-widget">
                             <ul>
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Advertising</a></li>
-                                <li><a href="#">Write for us</a></li>
-                                <li><a href="#">Trademark</a></li>
-                                <li><a href="#">License & Help</a></li>
+                                <li><a href="<?php echo base_url('about-us'); ?>">About us</a></li>
+                                 <li><a href="<?php echo base_url().'term-conditions'; ?>">Term & Conditions</a></li>
+                                <li><a href="<?php echo base_url().'privacy-policy'; ?>">Privacy Policy</a></li>
+                                <li><a href="<?php echo base_url().'contact-us'; ?>">Contact us</a></li>
+                               
+                               
                             </ul>
                         </div><!-- end link-widget -->
                     </div><!-- end widget -->
