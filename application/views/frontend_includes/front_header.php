@@ -54,6 +54,9 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
+                            </li>  
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url().'main-category'; ?>">Category</a>
                             </li>
                          <!--    <li class="nav-item dropdown has-submenu ">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>

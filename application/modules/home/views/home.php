@@ -9,8 +9,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="tech-single.html" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
-                                <small><a href="tech-single.html" title="">24 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">24 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Amanda</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -25,8 +25,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
-                                <h4><a href="tech-single.html" title="">Do not make mistakes when choosing web hosting</a></h4>
-                                <small><a href="tech-single.html" title="">03 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Do not make mistakes when choosing web hosting</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">03 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Jessica</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -41,8 +41,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="tech-single.html" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
-                                <small><a href="tech-single.html" title="">01 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">01 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Jessica</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -66,7 +66,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_01.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -74,12 +74,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Top 10 phone applications and 2017 mobile design awards</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Top 10 phone applications and 2017 mobile design awards</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>
-                                <small><a href="tech-single.html" title="">21 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">21 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 1114</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 1114</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -88,7 +88,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_02.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -96,12 +96,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">A device you can use both headphones and usb</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">A device you can use both headphones and usb</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Technology</a></small>
-                                <small><a href="tech-single.html" title="">21 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">21 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 4412</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 4412</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -110,7 +110,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_03.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -118,12 +118,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Two brand new laptop models from ABC computer</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Two brand new laptop models from ABC computer</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Development</a></small>
-                                <small><a href="tech-single.html" title="">20 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">20 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 2313</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 2313</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -144,7 +144,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_04.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -152,12 +152,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Applications for taking photos of nature in your mobile phones</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Applications for taking photos of nature in your mobile phones</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Design</a></small>
-                                <small><a href="tech-single.html" title="">19 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">19 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 4441</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 4441</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -166,7 +166,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_05.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -174,12 +174,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Say hello to colored strap models in smart hours</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Say hello to colored strap models in smart hours</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Materials</a></small>
-                                <small><a href="tech-single.html" title="">18 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">18 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 33312</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 33312</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -188,7 +188,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_06.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -196,12 +196,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">How about evaluating your old mobile phones in different ways?</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">How about evaluating your old mobile phones in different ways?</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>
-                                <small><a href="tech-single.html" title="">17 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">17 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 4440</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 4440</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -210,7 +210,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_07.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -218,12 +218,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Drinking coffee at the computer rests the spirit</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Drinking coffee at the computer rests the spirit</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Technology</a></small>
-                                <small><a href="tech-single.html" title="">16 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">16 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 4412</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 4412</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -232,7 +232,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_08.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -240,12 +240,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">If you are considering buying a new safe for your mobile phone, be sure to read this article</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">If you are considering buying a new safe for your mobile phone, be sure to read this article</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Reviews</a></small>
-                                <small><a href="tech-single.html" title="">15 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">15 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 44123</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 44123</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -254,7 +254,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_09.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -262,12 +262,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Enjoy a summer with a colorful headset</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Enjoy a summer with a colorful headset</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Technology</a></small>
-                                <small><a href="tech-single.html" title="">14 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">14 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 2214</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 2214</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
 
@@ -276,7 +276,7 @@
                         <div class="blog-box row">
                             <div class="col-md-4">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_10.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
@@ -284,12 +284,12 @@
                             </div><!-- end col -->
 
                             <div class="blog-meta big-meta col-md-8">
-                                <h4><a href="tech-single.html" title="">Google has developed a brand new algorithm. Forget all your knowledge!</a></h4>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Google has developed a brand new algorithm. Forget all your knowledge!</a></h4>
                                 <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
                                 <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small>
-                                <small><a href="tech-single.html" title="">13 July, 2017</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">13 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Matilda</a></small>
-                                <small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 3331</a></small>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title=""><i class="fa fa-eye"></i> 3331</a></small>
                             </div><!-- end meta -->
                         </div><!-- end blog-box -->
                     </div><!-- end blog-list -->
@@ -328,7 +328,7 @@
                         <div class="trend-videos">
                             <div class="blog-box">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_video_01.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span class="videohover"></span>
@@ -336,7 +336,7 @@
                                     </a>
                                 </div><!-- end media -->
                                 <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">We prepared the best 10 laptop presentations for you</a></h4>
+                                    <h4><a href="<?php echo base_url().'single-category'; ?>" title="">We prepared the best 10 laptop presentations for you</a></h4>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
 
@@ -344,7 +344,7 @@
 
                             <div class="blog-box">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_video_02.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span class="videohover"></span>
@@ -352,7 +352,7 @@
                                     </a>
                                 </div><!-- end media -->
                                 <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">We are guests of ABC Design Studio - Vlog</a></h4>
+                                    <h4><a href="<?php echo base_url().'single-category'; ?>" title="">We are guests of ABC Design Studio - Vlog</a></h4>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
 
@@ -360,7 +360,7 @@
 
                             <div class="blog-box">
                                 <div class="post-media">
-                                    <a href="tech-single.html" title="">
+                                    <a href="<?php echo base_url().'single-category'; ?>" title="">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_video_03.jpg" alt="" class="img-fluid">
                                         <div class="hovereffect">
                                             <span class="videohover"></span>
@@ -368,7 +368,7 @@
                                     </a>
                                 </div><!-- end media -->
                                 <div class="blog-meta">
-                                    <h4><a href="tech-single.html" title="">Both blood pressure monitor and intelligent clock</a></h4>
+                                    <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Both blood pressure monitor and intelligent clock</a></h4>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
                         </div><!-- end videos -->
@@ -378,7 +378,7 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_08.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">5 Beautiful buildings you need..</h5>
@@ -386,7 +386,7 @@
                                     </div>
                                 </a>
 
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_01.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Let's make an introduction for..</h5>
@@ -394,7 +394,7 @@
                                     </div>
                                 </a>
 
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_03.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Did you see the most beautiful..</h5>
@@ -409,7 +409,7 @@
                         <h2 class="widget-title">Recent Reviews</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_02.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Banana-chip chocolate cake recipe..</h5>
@@ -423,7 +423,7 @@
                                     </div>
                                 </a>
 
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_03.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">10 practical ways to choose organic..</h5>
@@ -437,7 +437,7 @@
                                     </div>
                                 </a>
 
-                                <a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="<?php echo $frontend_assets; ?>upload/tech_blog_07.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">We are making homemade ravioli..</h5>

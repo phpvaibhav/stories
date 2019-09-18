@@ -30,4 +30,12 @@ class Home extends Common_Front_Controller {
         $data['page_title'] = "Privacy Policy";
     	$this->load->front_render('privacyPolicy', $data, '');
     }
+    public function category() { 
+        $data['page_title'] = "Category";
+        $this->load->front_render('category', $data, '');
+    } 
+    public function singleCategory() { 
+        $data['page_title'] = "Single Category";
+        $this->load->front_render('singleCategory', $data, '');
+    }
 }//end class

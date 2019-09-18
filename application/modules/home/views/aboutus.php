@@ -6,8 +6,8 @@
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Contact</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
+                    <li class="breadcrumb-item active">About us</li>
                 </ol>
             </div><!-- end col -->                    
         </div><!-- end row -->
