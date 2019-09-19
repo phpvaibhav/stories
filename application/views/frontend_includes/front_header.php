@@ -11,7 +11,7 @@
     <title><?php echo SITE_NAME.'-'.$page_title; ?></title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Cavj group">
     <!-- Site Icons -->
     <link rel="shortcut icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
 
@@ -39,9 +39,12 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <?php if(!empty($front_scripts)) { load_js($front_scripts);} //load required page scripts ?>
+    <script src="<?php echo $frontend_assets; ?>js/jquery.min.js"></script>
+    
+   
 </head>
 <body>
+    <?php $segments        = $this->uri->segment_array(); ?>
     <div id="wrapper">
         <header class="tech-header header">
             <div class="container-fluid">
@@ -101,3 +104,79 @@
                 </nav>
             </div><!-- end container-fluid -->
         </header><!-- end market-header -->
+        <?php if(empty($segments)):  ?>
+<section class="section first-section">
+    <div class="container-fluid">
+        <div class="masonry-blog clearfix">
+            <div class="first-slot">
+                <div class="masonry-box post-media">
+                     <img src="<?php echo $frontend_assets; ?>upload/tech_01.jpg" alt="" class="img-fluid">
+                     <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">24 July, 2017</a></small>
+                                <small><a href="tech-author.html" title="">by Amanda</a></small>
+                            </div><!-- end meta -->
+                        </div><!-- end shadow-desc -->
+                    </div><!-- end shadow -->
+                </div><!-- end post-media -->
+            </div><!-- end first-side -->
+
+            <div class="second-slot">
+                <div class="masonry-box post-media">
+                     <img src="<?php echo $frontend_assets; ?>upload/tech_02.jpg" alt="" class="img-fluid">
+                     <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Do not make mistakes when choosing web hosting</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">03 July, 2017</a></small>
+                                <small><a href="tech-author.html" title="">by Jessica</a></small>
+                            </div><!-- end meta -->
+                        </div><!-- end shadow-desc -->
+                     </div><!-- end shadow -->
+                </div><!-- end post-media -->
+            </div><!-- end second-side -->
+
+            <div class="last-slot">
+                <div class="masonry-box post-media">
+                     <img src="<?php echo $frontend_assets; ?>upload/tech_03.jpg" alt="" class="img-fluid">
+                     <div class="shadoweffect">
+                        <div class="shadow-desc">
+                            <div class="blog-meta">
+                                <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
+                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
+                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">01 July, 2017</a></small>
+                                <small><a href="tech-author.html" title="">by Jessica</a></small>
+                            </div><!-- end meta -->
+                        </div><!-- end shadow-desc -->
+                     </div><!-- end shadow -->
+                </div><!-- end post-media -->
+            </div><!-- end second-side -->
+        </div><!-- end masonry -->
+    </div>
+</section>
+<?php else: ?>
+  <div class="page-title lb single-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <h2><i class="fa fa-gears bg-orange"></i> Category <small class="hidden-xs-down hidden-sm-down">Nulla felis eros, varius sit amet volutpat non. </small></h2>
+            </div><!-- end col -->
+            <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
+                <!--     <li class="breadcrumb-item"><a href="#">Category</a></li> -->
+                    <li class="breadcrumb-item active">Category</li>
+                </ol>
+            </div><!-- end col -->                    
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end page-title -->
+<?php endif; ?>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">

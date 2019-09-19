@@ -22,6 +22,7 @@ class Stories extends Common_Admin_Controller{
         }
         else{
             $storyId  = decoding($this->post('storyId'));
+            $title              = $this->post('title');
             $data_val['title']              = $this->post('title');
             $data_val['categoryId']         = $this->post('categoryId');
             $data_val['subCategoryId']      = $this->post('subCategoryId');
@@ -30,6 +31,9 @@ class Stories extends Common_Admin_Controller{
             $data_val['description']        = $this->post('ckeditor');
             $data_val['isFeatured']         = $this->post('isFeatured');
             $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
+            $stroyUrl                       = str_ireplace(" ","-",$title)."-".time();
+            
+           
            /*image uploads*/
             $storyId  = decoding($this->post('storyId'));
             $where = array('storyId'=>$storyId);
@@ -70,6 +74,7 @@ class Stories extends Common_Admin_Controller{
                 $result = $this->common_model->updateFields('stories',$data_val,$where);
                 $msg = "Story record updated successfully.";
             }else{
+                $data_val['stroyUrl']           = $stroyUrl;
                 $result = $this->common_model->insertData('stories',$data_val);
                 
                 $msg = "Story created successfully.";
