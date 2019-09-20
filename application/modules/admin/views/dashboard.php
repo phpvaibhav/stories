@@ -5,7 +5,7 @@
             <div class="row clearfix">
               
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('category'); ?>">
+                  <a href="<?php echo base_url('categories'); ?>">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="fa fa-cube"></i>
@@ -18,7 +18,7 @@
                   </a>
                 </div> 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('subCategory'); ?>">
+                  <a href="<?php echo base_url('subcategories'); ?>">
                     <div class="info-box bg-red hover-expand-effect">
                         <div class="icon">
                             <i class="fa fa-cubes"></i>
@@ -31,7 +31,7 @@
                   </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('story'); ?>">
+                  <a href="<?php echo base_url('stories'); ?>">
                     <div class="info-box bg-light-green hover-expand-effect">
                         <div class="icon">
                             <i class="fa fa-book"></i>

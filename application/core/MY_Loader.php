@@ -6,6 +6,9 @@ require APPPATH."third_party/MX/Loader.php";
 class MY_Loader extends MX_Loader {
 
     function front_render($template_name, $vars = array(), $page_script = '') {
+        $var['keywords']='story ,lojanlo ,lo jan lo';
+        $var['description']='';
+        $var['author']='5insight.com';
 
         $this->view('frontend_includes/front_header', $vars);
         $this->view($template_name, $vars);

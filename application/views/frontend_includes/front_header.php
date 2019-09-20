@@ -9,9 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Site Metas -->
     <title><?php echo SITE_NAME.'-'.$page_title; ?></title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="Cavj group">
+    <meta name="keywords" content="<?php echo isset($keywords) ? $keywords:''; ?>">
+    <meta name="description" content="<?php echo isset($description) ? $description:''; ?>">
+    <meta name="author" content="<?php echo isset($author) ? $author:''; ?>">
+    <meta http-equiv="refresh" content="1800">
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="<?php echo current_url(); ?>" />
     <!-- Site Icons -->
     <link rel="shortcut icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
 

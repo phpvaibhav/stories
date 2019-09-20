@@ -35,7 +35,7 @@
 							<div class="row">
 								<section class="col col-6">
 								
-									<select style="width:100%;" class="select2" name="categoryId" data-placeholder="Please select a Sub Category" id="categoryId" onchange="getsubCategory(this);">
+									<select style="width:100%;" class="select2" name="categoryId" data-placeholder="Please select Category" id="categoryId" onchange="getsubCategory(this);">
 										<optgroup label="">
 										<option></option>
 										<?php foreach ($categories as $k => $category) {?>
@@ -45,11 +45,11 @@
 									</select>
 								</section>
 								<section class="col col-6">
-									<select style="width:100%;" class="select2" name="subCategoryId" data-placeholder="Please select a Sub Category" id="subCategoryId">
-										<optgroup label="">
-										<option></option>
+									<select  class="form-control" name="subCategoryId" data-placeholder="Please select a Sub Category" id="subCategoryId">
+
+										<option value="">Please select a Sub Category</option>
 										
-										</optgroup>
+										
 									</select>
 								</section>
 							</div>

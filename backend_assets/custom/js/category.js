@@ -503,12 +503,12 @@ function getsubCategory(e){
                    
                     var items = res.subcategories;
                     var options;
-                    options += '<optgroup label="">';
+                    options += '<option value="">Please select a Sub Category</option>';
                     $.each(items, function(index, object) {
                         
                         options += '<option value="' + object.subCategoryId + '">' + object.subCategory + '</option>';
                     });
-                    options += '</optgroup>';
+                  
 
                     $(list).html(options);
                 /*    $.each(items, function(index, item) {
