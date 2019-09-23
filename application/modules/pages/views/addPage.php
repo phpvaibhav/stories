@@ -92,7 +92,7 @@
 								</section>
 								<section>
 								<label class="label">Description</label>
-									<textarea name="ckeditor"><?php echo $page['description']; ?></textarea>			
+									<textarea name="ckeditor" class="form-control" placeholder="" rows="3"><?php echo $page['description']; ?></textarea>			
 								</section>
 								
 							

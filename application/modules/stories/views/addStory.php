@@ -73,7 +73,7 @@
 							
 								<section>
 									<label class="label">Description</label>
-									<textarea name="ckeditor"></textarea>			
+									<textarea name="ckeditor" class="form-control" placeholder="" rows="3"></textarea>			
 								</section>
 							
 								<div class="row">
