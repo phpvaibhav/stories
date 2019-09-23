@@ -21,6 +21,7 @@ class Stories extends Common_Admin_Controller{
             
         }
         else{
+          
             $storyId  = decoding($this->post('storyId'));
             $title              = $this->post('title');
             $data_val['title']              = $this->post('title');

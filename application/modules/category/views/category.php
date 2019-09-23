@@ -29,20 +29,22 @@
 					<!-- end widget edit box -->
 					<!-- widget content -->
 					<div class="widget-body padding">
-						<table id="category_list" class="table table-striped table-bordered table-hover" width="100%">
-							<thead>			                
-								<tr>
-									<th data-hide="phone">ID</th>
-									<th data-hide="phone">Category</th>
-									<th data-hide="phone">Menu</th>
-									<th data-hide="phone,tablet">Status</th>
-									<th data-hide="phone,tablet">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-										
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table id="category_list" class="table table-striped table-bordered table-hover" width="100%">
+								<thead>			                
+									<tr>
+										<th data-hide="phone">ID</th>
+										<th data-hide="phone">Category</th>
+										<th data-hide="phone">Menu</th>
+										<th data-hide="phone,tablet">Status</th>
+										<th data-hide="phone,tablet">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+											
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<!-- end widget content -->
 				</div>

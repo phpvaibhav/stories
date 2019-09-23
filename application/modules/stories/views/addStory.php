@@ -89,10 +89,10 @@
 									<label class="label">Is Featured</label>
 									<div class="inline-group">
 										<label class="radio">
-											<input type="radio" name="radio-inline"  name="isFeatured" value="1" >
+											<input type="radio" name="isFeatured" value="1" >
 											<i></i>Yes</label>
 										<label class="radio">
-											<input type="radio" name="radio-inline" name="isFeatured" value="0" checked="checked">
+											<input type="radio" name="isFeatured" value="0" checked="checked">
 											<i></i>No</label>
 										
 									</div>

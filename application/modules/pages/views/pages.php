@@ -29,21 +29,23 @@
 					<!-- end widget edit box -->
 					<!-- widget content -->
 					<div class="widget-body padding">
-						<table id="page_list" class="table table-striped table-bordered table-hover" width="100%">
-							<thead>			                
-								<tr>
-									<th data-hide="phone">ID</th>
-									<th data-hide="phone">title</th>
-									<th data-hide="phone">sub Title</th>
-									<th data-hide="phone,tablet">Show Menu</th>
-									<th data-hide="phone,tablet">Status</th>
-									<th data-hide="phone,tablet">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-										
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table id="page_list" class="table table-striped table-bordered table-hover" width="100%">
+								<thead>			                
+									<tr>
+										<th data-hide="phone">ID</th>
+										<th data-hide="phone">title</th>
+										<th data-hide="phone">sub Title</th>
+										<th data-hide="phone,tablet">Show Menu</th>
+										<th data-hide="phone,tablet">Status</th>
+										<th data-hide="phone,tablet">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+											
+								</tbody>
+							</table>
+						</div>
 					</div>
 					<!-- end widget content -->
 				</div>
