@@ -26,7 +26,7 @@ class Pages extends Common_Admin_Controller{
                 $showMenu = $this->post('showMenu');
                 $title = $this->post('title');
                 $data_val['title']              = $title;
-                $data_val['pageUrl']            = str_ireplace(" ","-",$title);
+                $data_val['pageUrl']            = $this->post('pageUrl');;
 
                 $data_val['subTitle']           = $this->post('subTitle');
                 $data_val['description']        = $this->post('ckeditor');

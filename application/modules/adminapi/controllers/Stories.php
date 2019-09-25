@@ -42,11 +42,12 @@ class Stories extends Common_Admin_Controller{
              $folder    = 'stories';
             $hieght = 300;
             $width  = 400;
+            $image = array(); $featuredImage = '';
             if(!empty($featuredImageBase64)){
                 $this->load->model('image_model');
-                $featuredImage = $this->image_model->updateMediaBase64($featuredImageBase64,$folder,$hieght,$width);
+                $image = $this->image_model->updateMediaBase64($featuredImageBase64,$folder,$hieght,$width);
             }      
-             $image = array(); $featuredImage = '';
+             //
                   //  $image = array(); $featuredImage = '';
                /*     if (!empty($_FILES['featuredImage']['name'])) {
                          $this->load->model('image_model');

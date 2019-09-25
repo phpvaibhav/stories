@@ -13,6 +13,7 @@ $(document).ready(function() {
         width: 800,
         height:600
     },
+   // enforceBoundary: false,
    
 });
 

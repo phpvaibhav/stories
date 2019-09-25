@@ -136,20 +136,20 @@
             <div class="modal-content">
         
                 <div class="modal-body">
-					 <div class="alert dark alert-icon alert-danger alert-dismissible" role="alert" id="errorDiv" style="display:none;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <center><span id="upload-error">Please Save Image First</span> </center>
-          </div> 
-             
-                <input type="hidden" id="hidee" name="hidee">
-                <input type="hidden" id="prev" name="prev">
-
-
+					 <div class="row"></div>
+					 <div class="col-md-12">
+						<div class="alert dark alert-icon alert-danger alert-dismissible" role="alert" id="errorDiv" style="display:none;">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+							<center><span id="upload-error">Please Save Image First</span> </center>
+						</div> 
+		                <input type="hidden" id="hidee" name="hidee">
+		                <input type="hidden" id="prev" name="prev">
 						<div class="upload-demo-wrap">
-						<div id="upload-demo"></div>
+							<div id="upload-demo"></div>
 						</div>
+					 </div>
                 </div>
                 <div class="modal-footer">
                     

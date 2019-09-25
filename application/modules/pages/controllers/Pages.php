@@ -27,7 +27,7 @@ class Pages extends Common_Back_Controller {
     
         $where = array('pageId'=>$pageId);
         $data['page'] = $this->common_model->getsingle('pages',$where);
-    
+        $data['front_scripts'] = array('backend_assets/js/plugin/ckeditor/ckeditor.js','backend_assets/custom/js/pages.js');
         $this->load->admin_render('addPage', $data);
     } 
   

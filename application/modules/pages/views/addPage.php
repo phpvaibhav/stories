@@ -31,6 +31,22 @@
 								<div class="row">
 									
 									<section class="col col-md-12">
+								
+									<select  class="form-control" name="pageUrl"  id="pageUrl" >
+										<option value="">Please select Page Type</option>
+										<option value="aboutus">About us</option>
+										<option value="contactus">Contact us</option>
+										<option value="termConditions">Term & Conditions</option>
+										<option value="privacyPolicy">Privacy Policy</option>
+									
+										
+									</select>
+								</section>
+									
+								</div>
+							<div class="row">
+									
+									<section class="col col-md-12">
 										<label class="label">Title</label>
 										<label class="input"> <i class="icon-append fa fa-list-alt"></i>
 											<input type="text"  name="title" placeholder="Title" value="<?php echo $page['title']; ?>" id="title" >
@@ -119,3 +135,12 @@
 </div>
 
 <!-- END ROW -->
+<script type="text/javascript">
+	$(document).ready(function() {
+
+ CKEDITOR.replace( 'ckeditor', { height: '380px', startupFocus : true});
+
+ 
+
+});	
+</script>

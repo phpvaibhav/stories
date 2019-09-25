@@ -12,6 +12,8 @@ $("#pageAddUpdate").validate({// Rules for form validation
   rules : {
     title : {
       required : true
+    }, pageUrl : {
+      required : true
     },
   description : {
       required : true
@@ -24,6 +26,8 @@ $("#pageAddUpdate").validate({// Rules for form validation
   messages : {
     title : {
       required : 'Please enter your title'
+    }, pageUrl : {
+      required : 'Please enter your Page Type'
     },
     description : {
       required : 'Please enter your description',
