@@ -32,28 +32,31 @@ $(".alfaNumeric").on("keypress keyup blur",function (event) {
 $( "#purchaseDate" ).datepicker({  
   dateFormat: 'mm/dd/yyyy'
 });
-/*
-  * TIMEPICKER
-*/ 
-$('#timepicker').timepicker();
-$('.select2').select2({
-    minimumResultsForSearch: -1,
-    placeholder: function(){
-        $(this).data('placeholder');
-    }
-});
 
-  $("#dob").datepicker({
-           dateFormat: 'dd-mm-yy',
-            maxDate: new Date(),
-            changeMonth: true,
-            changeYear: true,
-            yearRange: "-100:+0",
-            prevText: '<i class="fa fa-chevron-left"></i>',
-            nextText: '<i class="fa fa-chevron-right"></i>',
-         
-      
-        });
 
+$("#dob").datepicker({
+       dateFormat: 'dd-mm-yy',
+        maxDate: new Date(),
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-100:+0",
+        prevText: '<i class="fa fa-chevron-left"></i>',
+        nextText: '<i class="fa fa-chevron-right"></i>',
+     
+  
+    });
+$(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+    $('a.thumb').click(function(event){
+      event.preventDefault();
+      var content = $('.modal-body');
+      content.empty();
+        var title = $(this).attr("title");
+        $('.modal-title').html(title);        
+        content.html($(this).html());
+        $(".modal-profile").modal({show:true});
+    });
+
+  });
 
   

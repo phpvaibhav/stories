@@ -93,16 +93,7 @@
 
     <!--================================================== -->
 
-    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
-    <script data-pace-options='{ "restartOnRequestAfter": true }' src="<?php echo $backend_assets ?>js/plugin/pace/pace.min.js"></script>
-
-    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-      if (!window.jQuery) {
-        document.write('<script src="<?php echo $backend_assets ?>js/libs/jquery-3.2.1.min.js"><\/script>');
-      }
-    </script>
+ 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
@@ -126,20 +117,12 @@
     <!-- JARVIS WIDGETS -->
     <script src="<?php echo $backend_assets ?>js/smartwidgets/jarvis.widget.min.js"></script>
 
-    <!-- EASY PIE CHARTS -->
-    <script src="<?php echo $backend_assets ?>js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
-
-    <!-- SPARKLINES -->
-    <script src="<?php echo $backend_assets ?>js/plugin/sparkline/jquery.sparkline.min.js"></script>
 
     <!-- JQUERY VALIDATE -->
     <script src="<?php echo $backend_assets ?>js/plugin/jquery-validate/jquery.validate.min.js"></script>
 
     <!-- JQUERY MASKED INPUT -->
     <script src="<?php echo $backend_assets ?>js/plugin/masked-input/jquery.maskedinput.min.js"></script>
-
-    <!-- JQUERY SELECT2 INPUT -->
-    <script src="<?php echo $backend_assets ?>js/plugin/select2/select2.min.js"></script>
 
     <!-- JQUERY UI + Bootstrap Slider -->
     <script src="<?php echo $backend_assets ?>js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
@@ -169,9 +152,6 @@
     <!-- SmartChat UI : plugin -->
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.ui.min.js"></script>
     <script src="<?php echo $backend_assets ?>js/smart-chat-ui/smart.chat.manager.min.js"></script>
-    <script src="<?php echo $backend_assets ?>js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-
-  
     <!-- PAGE RELATED PLUGIN(S) 
     <script src="..."></script>-->
       <!-- PAGE RELATED PLUGIN(S) -->
@@ -179,30 +159,14 @@
 <script src="<?php echo $backend_assets ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo $backend_assets ?>plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
-
- <script src="<?php echo $backend_assets; ?>custom/js/listing.js"></script>
- <script src="<?php echo $backend_assets; ?>js/plugin/ckeditor/ckeditor.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjhKBJtoevmCuR5iD1El6cuDHTMByw9Co&libraries=places" type="text/javascript"></script>
- <script src="<?php echo $backend_assets; ?>admin/js/user.js"></script>
+<script type="text/javascript">
+   var base_url = $('body').data('base-url'); // Base url
+  var authToken = $('body').data('auth-url'); // Base url
+</script>
  <script src="<?php echo $backend_assets; ?>custom/js/custom.js"></script>
  <script src="<?php echo $backend_assets; ?>custom/js/common.js"></script>
- <script src="<?php echo $backend_assets; ?>custom/js/customer.js"></script>
- <script src="<?php echo $backend_assets; ?>custom/js/category.js"></script>
- <script src="<?php echo $backend_assets; ?>custom/js/stories.js"></script>
- <script src="<?php echo $backend_assets; ?>custom/js/pages.js"></script>
-
-<script>
-    
-    // DO NOT REMOVE : GLOBAL FUNCTIONS!
-    
-    $(document).ready(function() {
-      
-      CKEDITOR.replace( 'ckeditor', { height: '380px', startupFocus : true} );
-    
-    })
-
-    </script>
-    <script>
+ <?php if(!empty($front_scripts)) { load_js($front_scripts);} //load required page scripts ?>
+  <script>
 
       $(document).ready(function() {
         
@@ -275,19 +239,7 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
       })();
-$(document).ready(function() {
-/* show lightbox when clicking a thumbnail */
-    $('a.thumb').click(function(event){
-      event.preventDefault();
-      var content = $('.modal-body');
-      content.empty();
-        var title = $(this).attr("title");
-        $('.modal-title').html(title);        
-        content.html($(this).html());
-        $(".modal-profile").modal({show:true});
-    });
 
-  });
     </script>
 
   </body>

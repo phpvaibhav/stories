@@ -7,7 +7,8 @@ class Stories_model extends CI_Model {
     var $userDefault = 'frontend_assets/upload/tech_blog_01.jpg';
     var $table = 'stories';
     var $column_order = array('s.storyId','s.title','s.authorBy','s.isFeatured','c.category','sc.subCategory'); //set column field database for datatable orderable
-    var $column_sel = array('s.storyId','s.title','s.authorBy','s.isFeatured','s.status','s.crd','c.category','sc.subCategory','(case when (s.status = 1) 
+
+    var $column_sel = array('s.*','s.title','s.authorBy','s.isFeatured','s.status','s.crd','c.category','sc.subCategory','(case when (s.status = 1) 
         THEN "Active" ELSE
         "Inactive" 
         END) as statusShow','(case when (s.isFeatured = 1) 
@@ -15,7 +16,7 @@ class Stories_model extends CI_Model {
         "No" 
         END) as isFeaturedShow','(case when (s.featuredImage = "") 
         THEN "frontend_assets/upload/tech_blog_01.jpg" ELSE
-        concat("uploads/stories/medium/",s.featuredImage) 
+        concat("uploads/stories/",s.featuredImage) 
         END) as featuredImage'); //set column field database for datatable orderable
     var $column_search = array('s.title','s.authorBy','s.isFeatured','c.category'); //set column field database for datatable searchable 
     var $order = array('s.storyId' => 'DESC');  // default order

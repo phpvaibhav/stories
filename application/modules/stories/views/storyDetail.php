@@ -1,11 +1,4 @@
-<?php $backend_assets=base_url().'backend_assets/'; 
-echo "<pre>";
-print_r($story);
-echo "</pre>";
-
-
-
-?>
+<?php $backend_assets=base_url().'backend_assets/'; ?>
 <div class="row">
 
 	<div class="col-sm-9">
@@ -15,30 +8,28 @@ echo "</pre>";
 			<div class="row">
 				
 				<div class="col-md-12 padding-left-0">
-					<h3 class="margin-top-0"><a href="javascript:void(0);"> Why Should You Make A Separate Mobile Website for your Business? </a><br><small class="font-xs"><i>Published by <a href="javascript:void(0);">John Doe</a></i></small></h3>
+					<h3 class="margin-top-0"><a href="javascript:void(0);"><?php echo $story['title']; ?></a><br><small class="font-xs"><i>AuthorBy by <a href="javascript:void(0);"><?php echo $story['authorBy']; ?></a></i></small></h3>
 					<div class="row">
 						<div class="col-md-12">
 					<img src="<?php echo base_url().$story['featuredImage']; ?>" class="img-responsive" alt="img">
 					<ul class="list-inline padding-10">
 						<li>
 							<i class="fa fa-calendar"></i>
-							<a href="javascript:void(0);"> March 12, 2015 </a>
-						</li>
+							<a href="javascript:void(0);"><?php echo date('F d, Y',strtotime($story['storyDate'])) ?></a>
+						</li> 
 						<li>
 							<i class="fa fa-comments"></i>
-							<a href="javascript:void(0);"> 38 Comments </a>
+							<a href="javascript:void(0);"> 0 Comments </a>
 						</li>
 					</ul>
 				</div>
 					</div>
 					<p>
-						At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
-
-						<br><br>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.
+						<?php echo $story['description']; ?>
 						<br><br>
 					</p>
-					<a class="btn btn-primary" href="javascript:void(0);"> Read more </a>
-					<a class="btn btn-warning" href="javascript:void(0);"> Edit </a>
+					<!-- <a class="btn btn-primary" href="javascript:void(0);"> Read more </a> -->
+					<a class="btn btn-warning" href="<?php echo base_url(); ?>stories/addStory/<?php echo encoding($story['storyId']); ?>"> Edit </a>
 					<a class="btn btn-success" href="javascript:void(0);"> Publish </a>
 				</div>
 			</div>
@@ -50,14 +41,14 @@ echo "</pre>";
 
 	<div class="col-sm-3">
 		<div class="well padding-10">
-			<h5 class="margin-top-0"><i class="fa fa-search"></i> Blog Search...</h5>
+			<!-- <h5 class="margin-top-0"><i class="fa fa-search"></i> Blog Search...</h5>
 			<div class="input-group">
 				<input type="text" class="form-control">
 				<span class="input-group-btn">
 					<button class="btn btn-default" type="button">
 						<i class="fa fa-search"></i>
 					</button> </span>
-			</div>
+			</div> -->
 			<!-- /input-group -->
 		</div>
 		<!-- /well -->
@@ -167,7 +158,7 @@ echo "</pre>";
 
 				<div class="col-lg-12">
 					<div class="margin-top-10">
-						<iframe allowfullscreen="" frameborder="0" height="210" src="http://player.vimeo.com/video/87025094" width="100%"></iframe>
+					<!-- 	<iframe allowfullscreen="" frameborder="0" height="210" src="http://player.vimeo.com/video/87025094" width="100%"></iframe> -->
 					</div>
 				</div>
 			</div>

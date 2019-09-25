@@ -15,8 +15,8 @@ class Image_model extends CI_Model{
     function image_sizes(){
         //add folder name
         $img_sizes = array();
-        $img_sizes['thumbnail'] = array('width'=>150, 'height'=>150, 'folder'=>'/thumb');
-        $img_sizes['medium'] = array('width'=>600, 'height'=>400, 'folder'=>'/medium');
+        $img_sizes['thumbnail'] = array('width'=>160, 'height'=>120, 'folder'=>'/thumb');
+        $img_sizes['medium'] = array('width'=>300, 'height'=>225, 'folder'=>'/medium');
         return $img_sizes;
     }
     
@@ -27,7 +27,7 @@ class Image_model extends CI_Model{
     function make_dirs($folder='',$mode=DIR_WRITE_MODE, $defaultFolder='uploads/'){
 
         if(!@is_dir(FCPATH . $defaultFolder)){
-            mkdir(FCPATH . $defaultFolder, $mode);
+            mkdir(FCPATH . $defaultFolder, $mode ,true);
         }
         
         if(!empty($folder)){
@@ -104,7 +104,7 @@ class Image_model extends CI_Model{
             $resize['maintain_ratio']     = FALSE;
             $resize['width'] 	      = $v['width'];
             $resize['height'] 	      = $v['height'];
-            $resize['quality'] 	      = '50%';
+            $resize['quality'] 	      = '90%';
 
             $this->image_lib->initialize($resize);
             $this->image_lib->resize();   //create resized copies
@@ -118,7 +118,7 @@ class Image_model extends CI_Model{
         $resize1['maintain_ratio'] 	= FALSE;
         $resize1['width']           = $width;
         $resize1['height'] 		= $height;
-        $resize1['quality']         = '60%';
+        $resize1['quality']         = '100%';
 
         $this->image_lib->initialize($resize1);
         $this->image_lib->resize();
@@ -252,5 +252,71 @@ class Image_model extends CI_Model{
 		return $storedFile;
 		  
 	}//FUnction
+    function updateMediaBase64($imagepost,$folder,$height=250,$width=250,$title="lojanlo"){
+        $this->make_dirs($folder);
+        $realpath = 'uploads/';
+        $img =$imagepost;
+        list($type, $img) = explode(';', $img);
+        list(, $img)      = explode(',', $img);
+        $data = base64_decode($img);
+        $image = 'lojanlo-'.time().uniqid().'.png';
+        $file = FCPATH.$realpath.$folder.'/'.$image;
+        $success = file_put_contents($file, $data); 
+        //image uploaded successfully - proceed to create resized copies
+
+        $this->load->library('image_lib'); //image library
+
+        // create folder for thumb image
+        $folder_thumb = $folder.'/thumb/';
+        $this->make_dirs($folder_thumb);
+
+
+        // create folder for medium image
+        $folder_resize = $folder.'/medium/';
+        $this->make_dirs($folder_resize);
+
+        // create folder for large image
+        $large = '/large';
+        $folder_large = $folder.$large;
+        $this->make_dirs($folder_large);
+
+        $img_sizes_arr = $this->image_sizes();  //predefined sizes in model
+        $thumb_img = '';
+
+        foreach($img_sizes_arr as $k=>$v){
+
+            $real_path = realpath(FCPATH .$realpath .$folder);
+
+            $resize['image_library']      = 'gd2';
+            $resize['source_image']       = realpath(FCPATH .$realpath.$folder.'/' . $image);
+            $resize['new_image']          = $real_path.$v['folder'].'/'. $image;
+            $resize['maintain_ratio']     = FALSE;
+            $resize['width']          = $v['width'];
+            $resize['height']         = $v['height'];
+            $resize['quality']        = '80%';
+
+            $this->image_lib->initialize($resize);
+            $this->image_lib->resize();   //create resized copies
+        }
+
+        //custom size 
+        $real_path = realpath(FCPATH .$realpath .$folder);
+
+        $resize1['source_image']    = realpath(FCPATH .$realpath.$folder.'/' . $image);
+        $resize1['new_image']   = $real_path.$large.'/'. $image;
+        $resize1['maintain_ratio']  = FALSE;
+        $resize1['width']           = $width;
+        $resize1['height']      = $height;
+        $resize1['quality']         = '100%';
+
+        $this->image_lib->initialize($resize1);
+        $this->image_lib->resize();
+        $this->image_lib->clear(); //clear memory
+
+        if(empty($thumb_img))
+            $thumb_img =$image;
+
+        return array('image_name'=>$thumb_img);
+    } // End Function
 
 }// End of class Image_model

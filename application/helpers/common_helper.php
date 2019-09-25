@@ -130,6 +130,8 @@ if (!function_exists('load_css')) {
 
             if(strpos($style_src, 'http://') === false && strpos($style_src, 'https://') === false){
                 $css_base_path = base_url() . $style_src;
+            }else{
+               $css_base_path = $style_src;
             }
 
             $style_tag .= "<link href=\"{$css_base_path}\" rel=\"stylesheet\">\n";
@@ -155,6 +157,8 @@ if (!function_exists('load_js')) {
 
             if(strpos($script_src, 'http://') === false && strpos($script_src, 'https://') === false){
                 $js_base_path = base_url() . $script_src;
+            }else{
+               $js_base_path = $script_src;
             }
 
             $script_tag .= "<script src=\"{$js_base_path}\"></script>\n";

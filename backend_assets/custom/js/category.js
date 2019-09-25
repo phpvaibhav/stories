@@ -481,8 +481,9 @@ $("#subcategoryAddUpdate").validate({// Rules for form validation
   }
 });
 /// sub category
-function getsubCategory(e){
-    var categoryId = $(e).val();
+function getsubCategory(e,i,ys){
+    var categoryId = (ys==0) ? $(e).val():e ;
+ 
      var list = $("#subCategoryId");
      $(list).html("");
     /*ajax*/
@@ -506,7 +507,7 @@ function getsubCategory(e){
                     options += '<option value="">Please select a Sub Category</option>';
                     $.each(items, function(index, object) {
                         
-                        options += '<option value="' + object.subCategoryId + '">' + object.subCategory + '</option>';
+                        options += '<option value="' + object.subCategoryId + '"   >' + object.subCategory + '</option>';
                     });
                   
 
@@ -515,7 +516,7 @@ function getsubCategory(e){
                       list.append(new Option(item.subCategory, item.subCategoryId));
                     });*/
                   // toastr.success(res.message, 'Success', {timeOut: 3000});
-               
+               $("#subCategoryId option[value='"+i+"']").attr('selected', 'selected');
                   }else{
                     toastr.error(res.message, 'Alert!', {timeOut: 5000});
                   }

@@ -20,6 +20,7 @@ class Users extends Common_Back_Controller {
         $where = array('id'=>$userId);
         $result = $this->common_model->getsingle('admin',$where);
         $data['userData'] = $result;
+         $data['front_scripts'] = array('backend_assets/admin/js/user.js');
         $this->load->admin_render('profile/userDetail', $data, '');
     } 
     public function changePassword(){
@@ -30,6 +31,7 @@ class Users extends Common_Back_Controller {
         $where = array('id'=>$userId);
         $result = $this->common_model->getsingle('admin',$where);
         $data['userData'] = $result;
+         $data['front_scripts'] = array('backend_assets/admin/js/user.js');
         $this->load->admin_render('profile/changePassword', $data, '');
     }   
 }

@@ -32,17 +32,23 @@ class Stories extends Common_Admin_Controller{
             $data_val['description']        = $this->post('ckeditor');
             $data_val['isFeatured']         = $this->post('isFeatured');
             $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
-            $stroyUrl                       = str_ireplace(" ","-",$title)."-".time();
-            
+            $stroyUrl                       = str_ireplace(" ","-",$title)."-".time().'-lojanlo';
+            $featuredImageBase64     =   $this->input->post('recImageData'); 
            
            /*image uploads*/
             $storyId  = decoding($this->post('storyId'));
             $where = array('storyId'=>$storyId);
             $isExist=$this->common_model->is_data_exists('stories',$where);
-                   
-
-                    $image = array(); $featuredImage = '';
-                    if (!empty($_FILES['featuredImage']['name'])) {
+             $folder    = 'stories';
+            $hieght = 300;
+            $width  = 400;
+            if(!empty($featuredImageBase64)){
+                $this->load->model('image_model');
+                $featuredImage = $this->image_model->updateMediaBase64($featuredImageBase64,$folder,$hieght,$width);
+            }      
+             $image = array(); $featuredImage = '';
+                  //  $image = array(); $featuredImage = '';
+               /*     if (!empty($_FILES['featuredImage']['name'])) {
                          $this->load->model('image_model');
                     $folder     = 'stories';
                     $image      = $this->image_model->upload_image('featuredImage',$folder); //upload media of Seller
@@ -62,7 +68,15 @@ class Stories extends Common_Admin_Controller{
                        
                     endif;
 
-                    }
+                    }*/
+                    //check for image name if present
+                    if(array_key_exists("image_name",$image)):
+                        $featuredImage = $image['image_name'];
+                          if(!empty($isExist->featuredImage)){
+                             $this->image_model->delete_image('uploads/stories/',$isExist->featuredImage);
+                          }
+                       
+                    endif;
                     if(!empty($featuredImage)){
                         $data_val['featuredImage']           =   $featuredImage;
                     }
