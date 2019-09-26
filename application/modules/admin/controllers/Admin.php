@@ -53,7 +53,7 @@ class Admin extends Common_Back_Controller {
      public function contactus() {
            
             $data['parent'] = "Contacts us";
-            $data['title'] = '<i class="fa-fw fa fa-envelope-open"></i> Contacts us';
+            $data['title'] = '<i class="fa-fw fa fa-envelope"></i> Contacts us';
             $data['front_scripts'] = array('frontend_assets/js/contactus.js');
             $this->load->admin_render('contactus', $data, '');
     }   

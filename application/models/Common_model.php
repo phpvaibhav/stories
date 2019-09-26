@@ -87,7 +87,7 @@ class Common_model extends CI_Model {
             $this->db->order_by($order_fld, $order_type);
         }
         $q = $this->db->get();
-        return $q->result(); //return multiple records
+        return $q->num_rows() ? $q->result() : array(); //return multiple records
     }
     
     /* get single record using join 
@@ -302,6 +302,10 @@ class Common_model extends CI_Model {
         $new_key = substr($res,0,config_item('rest_key_length'));
         return $new_key;
 
+    }//end function
+    function cleanString($string) {
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+        return trim(preg_replace('/[^A-Za-z0-9\-]/', '-', $string)); // Removes special chars.
     }
 
   

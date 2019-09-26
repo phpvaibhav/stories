@@ -236,7 +236,7 @@
           <a href="<?php echo base_url('pages'); ?>" title="Pages"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">Pages</span></a>
         </li> 
         <li class="<?php echo (strtolower($this->router->fetch_class()) == "contact-list") ? "active" : "" ?>">
-          <a href="<?php echo base_url('contact-list'); ?>" title="contact-list"><i class="fa fa-lg fa-fw fa-envelope-open"></i> <span class="menu-item-parent">Contacts us</span></a>
+          <a href="<?php echo base_url('contact-list'); ?>" title="contact-list"><i class="fa fa-lg fa-fw fa-envelope"></i> <span class="menu-item-parent">Contacts us</span></a>
         </li>
         
          <li class="<?php echo (strtolower($this->router->fetch_class()) == "customers") ? "active" : "" ?>">

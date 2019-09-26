@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 26, 2019 at 02:02 PM
+-- Generation Time: Sep 26, 2019 at 06:10 PM
 -- Server version: 5.7.27
 -- PHP Version: 7.2.7
 
@@ -48,7 +48,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullName`, `email`, `password`, `userType`, `profileImage`, `contactNumber`, `status`, `authToken`, `passToken`, `crd`, `upd`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, '6155087337a6e122d4b1f057a57ed12dd70e7785', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-25 10:58:02');
+(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, 'jq4Y1OcsdhNF9KIJ.png', '(111) 111-1111', 1, '50d06efade8a242d3c921b6b4b8867b2b6ce992a', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-26 10:53:36');
 
 -- --------------------------------------------------------
 
@@ -59,11 +59,20 @@ INSERT INTO `admin` (`id`, `fullName`, `email`, `password`, `userType`, `profile
 CREATE TABLE `category` (
   `categoryId` bigint(20) NOT NULL,
   `category` varchar(255) NOT NULL,
+  `pageUrl` text NOT NULL,
   `showMenu` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:Yes,0:No',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1: Active, 0:Inactive',
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`categoryId`, `category`, `pageUrl`, `showMenu`, `status`, `crd`, `upd`) VALUES
+(9, 'Category 1', '', 1, 1, '2019-09-26 10:18:20', '2019-09-26 11:12:48'),
+(10, 'Category 2', '', 1, 1, '2019-09-26 10:18:37', '2019-09-26 11:12:38');
 
 -- --------------------------------------------------------
 
@@ -100,6 +109,13 @@ CREATE TABLE `contactus` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`contactId`, `fullName`, `email`, `contact`, `subject`, `message`, `reply`, `status`, `crd`, `upd`) VALUES
+(3, 'Vaibhav Sharma', 'vaibhav@gmail.com', '88383843828', 'Test', 'Hii successfully completed', 0, 1, '2019-09-26 09:52:30', '2019-09-26 09:52:30');
 
 -- --------------------------------------------------------
 
@@ -158,10 +174,21 @@ CREATE TABLE `subCategory` (
   `subCategoryId` bigint(20) NOT NULL,
   `categoryId` bigint(20) NOT NULL,
   `subCategory` varchar(255) NOT NULL,
+  `pageUrl` text NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1: Active, 0:Inactive',
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subCategory`
+--
+
+INSERT INTO `subCategory` (`subCategoryId`, `categoryId`, `subCategory`, `pageUrl`, `status`, `crd`, `upd`) VALUES
+(3, 9, 'Sub tag1', '', 1, '2019-09-26 10:19:38', '2019-09-26 10:19:38'),
+(4, 9, 'Tag2', '', 1, '2019-09-26 10:19:59', '2019-09-26 10:19:59'),
+(5, 10, 'Tag3', '', 1, '2019-09-26 10:21:33', '2019-09-26 10:21:33'),
+(6, 10, 'Tag4', '', 1, '2019-09-26 10:21:54', '2019-09-26 10:21:54');
 
 -- --------------------------------------------------------
 
@@ -193,7 +220,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `email`, `password`, `profileImage`, `contactNumber`, `userType`, `createdBy`, `status`, `authToken`, `passToken`, `deviceType`, `deviceToken`, `verifyEmail`, `crd`, `upd`) VALUES
-(1, 'Admn', 'a@admin.com', '123456', '', '43536466', 1, 1, 1, '', '', 0, '', 0, '2019-09-05 13:07:15', '2019-09-05 13:07:15');
+(1, 'Admn', 'a@admin.com', '123456', '', '43536466', 1, 1, 1, '', '', 0, '', 0, '2019-09-05 13:07:15', '2019-09-05 13:07:15'),
+(2, 'Love k', 'm@gmail.com', '$2y$10$itWxWhKQ.fRAlkabGu.w8.M3yVQMfI.xGRygkyMeVxcsLp4S/QmSi', '', '(666) 373-7377', 1, 0, 1, 'c4874ef04c4588cdcdb363a14abd5a19b272ab36', 'fe2211fd0b46c1625317611e6bff4a0914552187', 0, '', 0, '2019-09-26 10:29:59', '2019-09-26 10:52:39');
 
 -- --------------------------------------------------------
 
@@ -284,7 +312,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -296,7 +324,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `contactId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contactId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -314,13 +342,13 @@ ALTER TABLE `stories`
 -- AUTO_INCREMENT for table `subCategory`
 --
 ALTER TABLE `subCategory`
-  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visitors`

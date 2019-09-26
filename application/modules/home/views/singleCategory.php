@@ -13,7 +13,7 @@
         <h3>Top 10 phone applications and 2017 mobile design awards</h3>
 
         <div class="blog-meta big-meta">
-            <small><a href="<?php echo base_url().'single-category'; ?>" title="">21 July, 2017</a></small>
+            <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">21 July, 2017</a></small>
             <small><a href="tech-author.html" title="">by Jessica</a></small>
             <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
         </div><!-- end meta -->
@@ -110,7 +110,7 @@
             <div class="col-lg-6">
                 <div class="blog-list-widget">
                     <div class="list-group">
-                        <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="<?php echo base_url().'single-category/lojanlo'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="w-100 justify-content-between text-right">
                                 <img src="<?php echo $frontend_assets;?>upload/tech_menu_19.jpg" alt="" class="img-fluid float-right">
                                 <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
@@ -124,7 +124,7 @@
             <div class="col-lg-6">
                 <div class="blog-list-widget">
                     <div class="list-group">
-                        <a href="<?php echo base_url().'single-category'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="<?php echo base_url().'single-category/lojanlo'; ?>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="w-100 justify-content-between">
                                 <img src="<?php echo $frontend_assets;?>upload/tech_menu_20.jpg" alt="" class="img-fluid float-left">
                                 <h5 class="mb-1">Let's make an introduction to the glorious world of history</h5>
@@ -171,7 +171,7 @@
             <div class="col-lg-6">
                 <div class="blog-box">
                     <div class="post-media">
-                        <a href="<?php echo base_url().'single-category'; ?>" title="">
+                        <a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">
                             <img src="<?php echo $frontend_assets;?>upload/tech_menu_04.jpg" alt="" class="img-fluid">
                             <div class="hovereffect">
                                 <span class=""></span>
@@ -179,7 +179,7 @@
                         </a>
                     </div><!-- end media -->
                     <div class="blog-meta">
-                        <h4><a href="<?php echo base_url().'single-category'; ?>" title="">We are guests of ABC Design Studio</a></h4>
+                        <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">We are guests of ABC Design Studio</a></h4>
                         <small><a href="blog-category-01.html" title="">Trends</a></small>
                         <small><a href="blog-category-01.html" title="">21 July, 2017</a></small>
                     </div><!-- end meta -->
@@ -189,7 +189,7 @@
             <div class="col-lg-6">
                 <div class="blog-box">
                     <div class="post-media">
-                        <a href="<?php echo base_url().'single-category'; ?>" title="">
+                        <a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">
                             <img src="<?php echo $frontend_assets;?>upload/tech_menu_06.jpg" alt="" class="img-fluid">
                             <div class="hovereffect">
                                 <span class=""></span>
@@ -197,7 +197,7 @@
                         </a>
                     </div><!-- end media -->
                     <div class="blog-meta">
-                        <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Nostalgia at work with family</a></h4>
+                        <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">Nostalgia at work with family</a></h4>
                         <small><a href="blog-category-01.html" title="">News</a></small>
                         <small><a href="blog-category-01.html" title="">20 July, 2017</a></small>
                     </div><!-- end meta -->

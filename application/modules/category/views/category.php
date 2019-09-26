@@ -92,10 +92,10 @@
 									<label class="label">Show menu</label>
 									<div class="inline-group">
 										<label class="radio">
-											<input type="radio" name="radio-inline"  name="showMenu" value="1" >
+											<input type="radio" name="showMenu" value="1" >
 											<i></i>Yes</label>
 										<label class="radio">
-											<input type="radio" name="radio-inline" name="showMenu" value="0" checked="checked">
+											<input type="radio" name="showMenu" value="0" checked="checked">
 											<i></i>No</label>
 										
 									</div>

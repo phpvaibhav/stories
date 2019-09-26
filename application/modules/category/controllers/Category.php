@@ -16,7 +16,7 @@ class Category extends Common_Back_Controller {
         
         $data['title'] = 'Categories';
         $count = $this->common_model->get_total_count('category');
-        $data['recordSet'] = array('<li class="sparks-info"><h5>Category<span class="txt-color-blue"><a class="anchor-btn" data-toggle="modal" data-target="#addCategory"><i class="fa fa-plus-square"></i></a></span></h5></li>','<li class="sparks-info"><h5>Total Categories <span class="txt-color-darken" id="totalCust"><i class="fa fa-lg fa-fw fa fa-taxi"></i>&nbsp;'.$count.'</span></h5></li>');
+        $data['recordSet'] = array('<li class="sparks-info"><h5>Category<span class="txt-color-blue"><a class="anchor-btn" data-toggle="modal" data-target="#addCategory"><i class="fa fa-plus-square"></i></a></span></h5></li>','<li class="sparks-info"><h5>Total Categories <span class="txt-color-darken" id="totalCust"><i class="fa fa-lg fa-fw fa fa-cube"></i>&nbsp;'.$count.'</span></h5></li>');
         $data['front_scripts'] = array('backend_assets/custom/js/category.js');
         $this->load->admin_render('category', $data);
     } 

@@ -17,7 +17,7 @@
 				data-widget-sortable="false"
 				-->
 				<header>
-					<span class="widget-icon"> <i class="fa fa-envelope-open"></i> </span>
+					<span class="widget-icon"> <i class="fa fa-envelope"></i> </span>
 					<h2>Contacts us</h2>
 				</header>
 				<!-- widget div-->

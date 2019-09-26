@@ -64,24 +64,26 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
                             </li>  
+                            <?php if(isset($menus) && !empty($menus)){
+                                foreach ($menus as $k => $menu){ ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url().'main-category'; ?>">Category</a>
+                                <a class="nav-link" href="<?php echo base_url().'main-category/'.trim($menu->pageUrl); ?>"><?php echo ucfirst($menu->category); ?></a>
                             </li>
-                         <!--    <li class="nav-item dropdown has-submenu ">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+                        <?php } } ?>
+                          <?php if(isset($subMenus) && !empty($subMenus)){ ?>
+                           <li class="nav-item dropdown has-submenu ">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other</a>
                                 <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+                                     <?php 
+                                foreach ($subMenus as $ks => $submenu) {?>
                                     <li>
-                                         <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
-                                    </li> <li>
-                                         <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
-                                    </li> <li>
-                                         <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
-                                    </li> <li>
-                                         <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
-                                    </li>
+                                         <a class="nav-link" href="<?php echo base_url().'main-category/'.trim($submenu->pageUrl); ?>"><?php echo ucfirst($submenu->category); ?></a>
+                                    </li> 
+                                       <?php }  ?>
                                 </ul>
                             </li>
- -->
+                              <?php } ?>
+ 
                           <!--   <li class="nav-item">
                                 <a class="nav-link" href="tech-category-01.html">Gadgets</a>
                             </li>                   
@@ -91,6 +93,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="tech-category-03.html">Reviews</a>
                             </li> -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url().'about-us'; ?>">About Us</a>
+                            </li> 
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url().'contact-us'; ?>">Contact Us</a>
                             </li>
@@ -121,8 +126,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
-                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">24 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
+                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">24 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Amanda</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -137,8 +142,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
-                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">Do not make mistakes when choosing web hosting</a></h4>
-                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">03 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">Do not make mistakes when choosing web hosting</a></h4>
+                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">03 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Jessica</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -153,8 +158,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="<?php echo base_url().'single-category'; ?>" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
-                                <small><a href="<?php echo base_url().'single-category'; ?>" title="">01 July, 2017</a></small>
+                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
+                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">01 July, 2017</a></small>
                                 <small><a href="tech-author.html" title="">by Jessica</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->

@@ -6,6 +6,8 @@ require APPPATH."third_party/MX/Loader.php";
 class MY_Loader extends MX_Loader {
 
     function front_render($template_name, $vars = array(), $page_script = '') {
+        $vars['menus'] = $this->common_model->getAll('category',array('status'=>1,'showMenu'=>1),'category','asc');
+        $vars['subMenus'] = $this->common_model->getAll('category',array('status'=>1,'showMenu !='=>1),'category','asc');
         $this->view('frontend_includes/front_header', $vars);
         $this->view($template_name, $vars);
         

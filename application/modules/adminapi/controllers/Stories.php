@@ -32,7 +32,8 @@ class Stories extends Common_Admin_Controller{
             $data_val['description']        = $this->post('ckeditor');
             $data_val['isFeatured']         = $this->post('isFeatured');
             $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
-            $stroyUrl                       = str_ireplace(" ","-",$title)."-".time().'-lojanlo';
+            $stroyUrl                       = $this->common_model->cleanString($title)."-".time().'-lojanlo';
+            
             $featuredImageBase64     =   $this->input->post('recImageData'); 
            
            /*image uploads*/

@@ -21,9 +21,12 @@ class Category extends Common_Admin_Controller{
         }else{
                 $categoryId = decoding($this->post('categoryId'));
                 $showMenu = $this->post('showMenu');
+                $category=$this->post('category');
 				$data_val['category']       	= $this->post('category');
 				$data_val['showMenu']       	= $showMenu ? $showMenu:0;
-			
+               
+                 $pageUrl                            = $this->common_model->cleanString($category);
+                $data_val['pageUrl']           = $pageUrl.'-lojanlo';
 				$where = array('categoryId'=>$categoryId);
             	$isExist=$this->common_model->is_data_exists('category',$where);
             	if($isExist){
@@ -154,9 +157,11 @@ class Category extends Common_Admin_Controller{
             
                 $subCategoryId = decoding($this->post('subCategoryId'));
                 
-                $data_val['subCategory']   = $this->post('subCategory');
-                $data_val['categoryId']    = $this->post('categoryId');
-               
+                $subCategory                = $this->post('subCategory');
+                $data_val['subCategory']    = $this->post('subCategory');
+                $data_val['categoryId']     = $this->post('categoryId');
+                $pageUrl                            = $this->common_model->cleanString($subCategory);
+                $data_val['pageUrl']           = $pageUrl.'-lojanlo';
                 $where = array('subCategoryId'=>$subCategoryId);
                 $isExist=$this->common_model->is_data_exists('subCategory',$where);
                 if($isExist){
