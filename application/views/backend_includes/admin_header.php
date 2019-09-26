@@ -232,12 +232,16 @@
           <a href="<?php echo base_url('stories'); ?>" title="stories"><i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Stories</span></a>
         </li>
       
+        <li class="<?php echo (strtolower($this->router->fetch_class()) == "pages") ? "active" : "" ?>">
+          <a href="<?php echo base_url('pages'); ?>" title="Pages"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">Pages</span></a>
+        </li> 
+        <li class="<?php echo (strtolower($this->router->fetch_class()) == "contact-list") ? "active" : "" ?>">
+          <a href="<?php echo base_url('contact-list'); ?>" title="contact-list"><i class="fa fa-lg fa-fw fa-envelope-open"></i> <span class="menu-item-parent">Contacts us</span></a>
+        </li>
+        
          <li class="<?php echo (strtolower($this->router->fetch_class()) == "customers") ? "active" : "" ?>">
           <a href="<?php echo base_url('customers'); ?>" title="Customers"><i class="fa fa-lg fa-fw fa-users"></i> <span class="menu-item-parent">Customers</span></a>
         </li>  
-        <li class="<?php echo (strtolower($this->router->fetch_class()) == "pages") ? "active" : "" ?>">
-          <a href="<?php echo base_url('pages'); ?>" title="Pages"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">Pages</span></a>
-        </li>
 
       <!--   <li class="<?php echo (strtolower($this->router->fetch_class()) == "reports") ? "active" : "" ?>">
           <a href="<?php echo base_url('reports'); ?>" title="Reports"><i class="fa fa-lg fa-fw fa-line-chart"></i> <span class="menu-item-parent">Reports</span></a>

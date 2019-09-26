@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends Common_Front_Controller {
 
     public $data = "";
+    public $row = array();
 
     function __construct() {
         parent::__construct();
@@ -22,7 +23,8 @@ class Home extends Common_Front_Controller {
         $data['description']    = $row['metaDescription'];
         $data['author']         = 'lojanlo';
         $data['row']            = $row;
-
+        $data['front_styles'] = array('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css');
+       $data['front_scripts'] = array('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js','backend_assets/js/plugin/masked-input/jquery.maskedinput.min.js','backend_assets/js/plugin/jquery-validate/jquery.validate.min.js','frontend_assets/js/contactus.js');
     	$this->load->front_render('contact', $data, '');
     } 
     public function aboutus() { 
@@ -42,7 +44,7 @@ class Home extends Common_Front_Controller {
         $data['keywords'] = $row['metaKeyword'];
         $data['description'] = $row['metaDescription'];
         $data['author'] = 'lojanlo';
-         $row = $this->common_model->getsingle('pages',array('pageUrl'=>'termConditions'));
+        $row = $this->common_model->getsingle('pages',array('pageUrl'=>'termConditions'));
          $data['row'] = $row;
     	$this->load->front_render('termConditions', $data, '');
     }

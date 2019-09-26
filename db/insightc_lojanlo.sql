@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 06, 2019 at 03:31 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Host: localhost:3306
+-- Generation Time: Sep 26, 2019 at 02:02 PM
+-- Server version: 5.7.27
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `newsetup`
+-- Database: `insightc_lojanlo`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +48,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `fullName`, `email`, `password`, `userType`, `profileImage`, `contactNumber`, `status`, `authToken`, `passToken`, `crd`, `upd`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, '8a3782c4fe7cb355ef5bc64d91704c75b258f2d1', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-06 13:08:50');
+(1, 'Admin', 'admin@admin.com', '$2y$10$RTG0LIJMlWZc0/0bGSvD..LO2SAIA9FAE7CwffXp9ztNA1Wlbcmey', 1, '', '(111) 111-1111', 1, '6155087337a6e122d4b1f057a57ed12dd70e7785', 'e5309a9e62031ca2acfe429e2930c5a2a90dcf1d', '2019-08-01 13:15:47', '2019-09-25 10:58:02');
 
 -- --------------------------------------------------------
 
@@ -64,19 +64,6 @@ CREATE TABLE `category` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`categoryId`, `category`, `showMenu`, `status`, `crd`, `upd`) VALUES
-(1, 'd', 0, 1, '2019-08-29 13:30:26', '2019-08-29 13:30:26'),
-(2, 'test', 0, 1, '2019-08-29 13:32:06', '2019-08-29 13:32:06'),
-(3, 'xszcfz', 0, 1, '2019-08-29 13:36:33', '2019-08-29 13:36:33'),
-(4, 'fsdff', 1, 1, '2019-08-29 13:39:08', '2019-09-03 13:19:50'),
-(5, 'testc', 1, 1, '2019-09-03 13:15:11', '2019-09-03 13:15:11'),
-(6, 'testcfdsfds', 1, 1, '2019-09-03 13:15:52', '2019-09-03 13:15:52'),
-(7, 'fdsfssfs', 1, 1, '2019-09-03 13:18:28', '2019-09-03 13:19:39');
 
 -- --------------------------------------------------------
 
@@ -98,6 +85,25 @@ CREATE TABLE `comments` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `contactId` bigint(20) NOT NULL,
+  `fullName` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `reply` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:yes',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:Active',
+  `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pages`
 --
 
@@ -111,7 +117,7 @@ CREATE TABLE `pages` (
   `metaTitle` text NOT NULL,
   `metaKeyword` text NOT NULL,
   `metaDescription` text NOT NULL,
-  `status` text NOT NULL COMMENT '1:Active',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:Active',
   `showMenu` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1:Yes ,0:No',
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -127,6 +133,7 @@ CREATE TABLE `stories` (
   `storyId` bigint(20) NOT NULL,
   `categoryId` bigint(20) NOT NULL,
   `subcategoryId` bigint(20) NOT NULL,
+  `stroyUrl` text NOT NULL,
   `title` varchar(255) NOT NULL,
   `tag` text NOT NULL,
   `description` text NOT NULL,
@@ -140,13 +147,6 @@ CREATE TABLE `stories` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `stories`
---
-
-INSERT INTO `stories` (`storyId`, `categoryId`, `subcategoryId`, `title`, `tag`, `description`, `featuredImage`, `authorBy`, `postedBy`, `postedById`, `isFeatured`, `status`, `storyDate`, `crd`, `upd`) VALUES
-(1, 2, 1, 'Test', '', '<p>fdsfsfgdgd</p>\r\n', '', '1', 1, 0, 0, 1, '1970-01-01 00:00:00', '2019-09-05 13:09:51', '2019-09-05 13:09:51');
 
 -- --------------------------------------------------------
 
@@ -162,13 +162,6 @@ CREATE TABLE `subCategory` (
   `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `upd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subCategory`
---
-
-INSERT INTO `subCategory` (`subCategoryId`, `categoryId`, `subCategory`, `status`, `crd`, `upd`) VALUES
-(1, 2, 'resrtsdf', 1, '2019-09-04 09:10:48', '2019-09-04 09:50:15');
 
 -- --------------------------------------------------------
 
@@ -202,6 +195,19 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `fullName`, `email`, `password`, `profileImage`, `contactNumber`, `userType`, `createdBy`, `status`, `authToken`, `passToken`, `deviceType`, `deviceToken`, `verifyEmail`, `crd`, `upd`) VALUES
 (1, 'Admn', 'a@admin.com', '123456', '', '43536466', 1, 1, 1, '', '', 0, '', 0, '2019-09-05 13:07:15', '2019-09-05 13:07:15');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitors`
+--
+
+CREATE TABLE `visitors` (
+  `visitorId` bigint(20) NOT NULL,
+  `ip` text NOT NULL,
+  `agent` text NOT NULL,
+  `crd` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -224,6 +230,12 @@ ALTER TABLE `category`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`commentId`),
   ADD KEY `storyId` (`storyId`);
+
+--
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`contactId`);
 
 --
 -- Indexes for table `pages`
@@ -253,6 +265,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `visitors`
+--
+ALTER TABLE `visitors`
+  ADD PRIMARY KEY (`visitorId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -266,13 +284,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `categoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
   MODIFY `commentId` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `contactId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -284,19 +308,25 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `storyId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `storyId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `subCategory`
 --
 ALTER TABLE `subCategory`
-  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `subCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `visitors`
+--
+ALTER TABLE `visitors`
+  MODIFY `visitorId` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

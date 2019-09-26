@@ -274,7 +274,8 @@
 
 <script src="<?php echo $frontend_assets; ?>js/tether.min.js"></script>
 <script src="<?php echo $frontend_assets; ?>js/bootstrap.min.js"></script>
-<script src="<?php echo $frontend_assets; ?>js/custom.js"></script>
+
  <?php if(!empty($front_scripts)) { load_js($front_scripts);} //load required page scripts ?>
+<script src="<?php echo $frontend_assets; ?>js/custom.js"></script>
 </body>
 </html>

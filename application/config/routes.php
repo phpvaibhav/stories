@@ -60,6 +60,7 @@ $route['privacy-policy']					= 'home/privacyPolicy';
 $route['main-category']					= 'home/category';
 $route['single-category']					= 'home/singleCategory';
 $route['dashboard']					= 'admin/dashboard';
+$route['contact-list']					= 'admin/contactus';
 $route['categories']				= 'category';
 $route['subcategories']				= 'category/subCategory';
 $route['profile/(:any)'] = 'admin/users/userDetail/$1';

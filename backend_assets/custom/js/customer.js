@@ -26,31 +26,8 @@ $("#customerAddUpdate").validate({// Rules for form validation
       required : true,
       minlength : 3,
       maxlength : 20
-    }, 
-    address : {
-      required : true,
-    
-    },
-    latitude : {
-      required : true,
-    
-    },
-	longitude : {
-      required : true,
-    
-    }, 
-    address1 : {
-      required : true,
-    
-    },
-    latitude1 : {
-      required : true,
-    
-    },
-	longitude1 : {
-      required : true,
-    
-    },
+    }
+
 
   },
   // Messages for form validation
@@ -67,12 +44,6 @@ $("#customerAddUpdate").validate({// Rules for form validation
     },
     password : {
       required : 'Please enter your password'
-    },
-    address : {
-      required : 'Please enter your address'
-    },
-    address1 : {
-      required : 'Please enter your billing address'
     }
   },
   // Ajax form submition

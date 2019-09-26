@@ -42,11 +42,14 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="<?php echo $frontend_assets; ?>js/jquery.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     
    
 </head>
-<body>
+<body data-base-url="<?php echo base_url(); ?>">
     <?php $segments        = $this->uri->segment_array(); ?>
     <div id="wrapper">
         <header class="tech-header header">
@@ -166,7 +169,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2><i class="<?= $row['icon'];?> bg-orange"></i> <?= ucfirst($row['title']); ?> <small class="hidden-xs-down hidden-sm-down"><?= $row['subTitle']; ?></small></h2>
+                <h2><i class="<?= isset($row['icon'])? $row['icon']:'';?> bg-orange"></i> <?= isset($row['title'])?ucfirst($row['title']):''; ?> <small class="hidden-xs-down hidden-sm-down"><?= isset($row['subTitle']) ?$row['subTitle'] :''; ?></small></h2>
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                 <ol class="breadcrumb">

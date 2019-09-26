@@ -43,25 +43,7 @@ class Customers extends Common_Admin_Controller{
                 $userData['userType']       = 1;
                 $userData['authToken']      =   $authtoken;
                 $userData['passToken']      =   $passToken;
-                //User meta
-                $userMeta['address']        = $this->post('address');
-                $userMeta['street']         = $this->post('street');
-                $userMeta['street2']        = $this->post('street2');
-                $userMeta['city']           = $this->post('city');
-                $userMeta['state']          = $this->post('state');
-                $userMeta['zip']            = $this->post('zip');
-                $userMeta['country']        = $this->post('country');
-                $userMeta['latitude']       = $this->post('latitude');
-                $userMeta['longitude']      = $this->post('longitude');
-                $userMeta['billAddress']    = $this->post('address1');
-                $userMeta['billStreet']     = $this->post('street1');
-                $userMeta['billStreet2']    = $this->post('street21');
-                $userMeta['billCity']       = $this->post('city1');
-                $userMeta['billState']      = $this->post('state1');
-                $userMeta['billZip']        = $this->post('zip1');
-                $userMeta['billCountry']    = $this->post('country1');
-                $userMeta['billLatitude']   = $this->post('latitude1');
-                $userMeta['billLongitude']  = $this->post('longitude1');
+
 
             if($dataExist){
                  $isemailExist=$this->common_model->is_data_exists('users',array('id !='=>$userId,'email'=> $userData['email']));
@@ -70,8 +52,7 @@ class Customers extends Common_Admin_Controller{
                  }else{
                     $update = $this->common_model->updateFields('users',$userData,$where);
                     if($update){
-                    $userMeta['userId'] = $userId;
-                    $this->common_model->updateFields('customerMeta',$userMeta,array('userId'=>$userId));
+                  
                     $response = array('status'=>SUCCESS,'message'=>"Customer record updated successfully.");
                     }else{
                     $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
@@ -81,8 +62,7 @@ class Customers extends Common_Admin_Controller{
             }else{
                 $userId = $this->common_model->insertData('users',$userData);
                 if($userId){
-                    $userMeta['userId'] = $userId;
-                    $this->common_model->insertData('customerMeta',$userMeta);
+                   
                      $response = array('status'=>SUCCESS,'message'=>"Customer record added successfully.");
                 }else{
                      $response = array('status'=>FAIL,'message'=>ResponseMessages::getStatusCodeMessage(118));
@@ -121,13 +101,13 @@ class Customers extends Common_Admin_Controller{
 
             $action .= '<a href="'.$link.'" onclick="customerStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->id).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
         }else{
-             $action .= '&nbsp;&nbsp;<a href="'.$link.'" onclick="customerStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->id).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
+             $action .= '&nbsp;&nbsp;<a href="'.$link.'" onclick="customerStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->id).'"  class="on-default edit-row table_action" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
-        $userLink = base_url().'customers/customerDetail/'.encoding($serData->id);
+        /*$userLink = base_url().'customers/customerDetail/'.encoding($serData->id);
         
-        $action .= '&nbsp;&nbsp;<a href="'.$userLink.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
+        $action .= '&nbsp;&nbsp;|&nbsp;&nbsp;<a href="'.$userLink.'"  class="on-default edit-row table_action" title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;|';
         $pdfLink = base_url().'customers/customersDetailPdf/'.encoding($serData->id);
-        $action .= '&nbsp;&nbsp;<a href="'.$pdfLink.'"  class="on-default edit-row table_action" title="Pdf Download" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>';
+        $action .= '&nbsp;&nbsp;<a href="'.$pdfLink.'"  class="on-default edit-row table_action" title="Pdf Download" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>';*/
           /*  $action .= '<a href="'.$link.'" onclick="statusChange(this);" data-message="You want to change status!" data-serid="'.encoding($serData->serviceId).'" data-sid="'.encoding($applyStatus).'"  class="on-default edit-row table_action" title="View user">'.$applyMsg.'</a>';*/
              
             // $clk_edit =  "editFn('admin/categoryCtrl','editGenres','$usersData->id');" ;
