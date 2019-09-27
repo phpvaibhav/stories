@@ -12,7 +12,7 @@ class Stories_model extends CI_Model {
         END) as statusShow','(case when (s.isFeatured = 1) 
         THEN "Yes" ELSE
         "No" 
-        END) as isFeaturedShow'); //set column field database for datatable orderable
+        END) as isFeaturedShow','u.fullName as postBy'); //set column field database for datatable orderable
     var $column_search = array('s.title','s.authorBy','s.isFeatured','c.category'); //set column field database for datatable searchable 
     var $order = array('s.storyId' => 'DESC');  // default order
     var $where = array();
@@ -31,9 +31,9 @@ class Stories_model extends CI_Model {
         $sel_fields = array_filter($this->column_sel); 
         $this->db->select($sel_fields);
         $this->db->from('stories as s');
-        $this->db->join('category as c','c.categoryId=s.categoryId');
-        $this->db->join('subCategory as sc','sc.subCategoryId=s.subCategoryId');
-        //$this->db->join('users as c','c.id=j.customerId','left');
+        $this->db->join('category as c','c.categoryId=s.categoryId','left');
+        $this->db->join('subCategory as sc','sc.subCategoryId=s.subCategoryId','left');
+        $this->db->join('users as u','u.id=s.postedById','left');
      
         $i = 0;
         foreach ($this->column_search as $emp) // loop column 
@@ -112,9 +112,10 @@ class Stories_model extends CI_Model {
     public function count_all()
     {
        // $this->db->from($this->table);
-         $this->db->from('stories as s');
-        $this->db->join('category as c','c.categoryId=s.categoryId');
-        $this->db->join('subCategory as sc','sc.subCategoryId=s.subCategoryId');
+        $this->db->from('stories as s');
+        $this->db->join('category as c','c.categoryId=s.categoryId','left');
+        $this->db->join('subCategory as sc','sc.subCategoryId=s.subCategoryId','left');
+        $this->db->join('users as u','u.id=s.postedById','left');
          if(!empty($this->where))
             $this->db->where($this->where); 
         return $this->db->count_all_results();

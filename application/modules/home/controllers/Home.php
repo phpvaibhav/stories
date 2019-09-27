@@ -13,6 +13,8 @@ class Home extends Common_Front_Controller {
 
     public function index() { 
         $data['page_title'] = "Home";
+        $this->load->model('home_model');
+        $data['topstories'] = $this->home_model->get_stories(array('s.status'=>1),array('DATE(s.crd)'=>'desc'),'4');
     	$this->load->front_render('home', $data, '');
     } 
     public function contactus() { 
@@ -40,30 +42,46 @@ class Home extends Common_Front_Controller {
     } 
     public function termConditions() { 
         $data['page_title'] = "Term & Conditions";
-        $data['title'] = $row['metaTitle'];
+       
+        $row = $this->common_model->getsingle('pages',array('pageUrl'=>'termConditions'));
+         $data['title'] = $row['metaTitle'];
         $data['keywords'] = $row['metaKeyword'];
         $data['description'] = $row['metaDescription'];
         $data['author'] = 'lojanlo';
-        $row = $this->common_model->getsingle('pages',array('pageUrl'=>'termConditions'));
-         $data['row'] = $row;
+        $data['row'] = $row;
     	$this->load->front_render('termConditions', $data, '');
     }
     public function privacyPolicy() { 
         $data['page_title'] = "Privacy Policy";
-        $data['title'] = $row['metaTitle'];
+      
+         $row = $this->common_model->getsingle('pages',array('pageUrl'=>'privacyPolicy'));
+           $data['title'] = $row['metaTitle'];
         $data['keywords'] = $row['metaKeyword'];
         $data['description'] = $row['metaDescription'];
         $data['author'] = 'lojanlo';
-         $row = $this->common_model->getsingle('pages',array('pageUrl'=>'privacyPolicy'));
-         $data['row'] = $row;
+        $data['row'] = $row;
     	$this->load->front_render('privacyPolicy', $data, '');
     }
     public function category() { 
         $data['page_title'] = "Category";
+        $row['icon']= "fa fa-hashtag";
+        $row['title']= str_replace(array('-','lojanlo'),array(' ',' '),$this->uri->segment(2));
+        $row['subTitle']= "";
+        $data['row'] = $row;
         $this->load->front_render('category', $data, '');
     } 
     public function singleCategory() { 
-        $data['page_title'] = "Single Category";
-        $this->load->front_render('singleCategory', $data, '');
+        $pageId = $this->uri->segment(2);
+        $this->load->model('home_model');
+        $story = $this->home_model->single_story(array('s.status'=>1,'s.storyUrl'=>trim($pageId)));
+
+        $row['icon']= "fa fa-hashtag";
+        $row['title']= str_replace(array('-','lojanlo'),array(' ',' '),$pageId);
+        $row['subTitle']= "";
+        $data['page_title'] =str_replace(array('-','lojanlo'),array(' ',' '),$pageId);
+        $data['row'] = $row;
+        (empty($story)) ? redirect(base_url(),true):'';
+        $data['story'] = $story;
+        $this->load->front_render('storyPage', $data, '');
     }
 }//end class

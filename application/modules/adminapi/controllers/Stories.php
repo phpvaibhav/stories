@@ -32,7 +32,7 @@ class Stories extends Common_Admin_Controller{
             $data_val['description']        = $this->post('ckeditor');
             $data_val['isFeatured']         = $this->post('isFeatured');
             $data_val['storyDate']          = date("Y-m-d",strtotime($this->post('storyDate')));
-            $stroyUrl                       = $this->common_model->cleanString($title)."-".time().'-lojanlo';
+            $storyUrl                       = $this->common_model->cleanString($title)."-".time().'-lojanlo';
             
             $featuredImageBase64     =   $this->input->post('recImageData'); 
            
@@ -86,12 +86,12 @@ class Stories extends Common_Admin_Controller{
            
           
            // $isExist=$this->common_model->is_data_exists('stories',$where);
-
+            $data_val['storyUrl']           = $storyUrl;
             if($isExist){
                 $result = $this->common_model->updateFields('stories',$data_val,$where);
                 $msg = "Story record updated successfully.";
             }else{
-                $data_val['stroyUrl']           = $stroyUrl;
+                
                 $result = $this->common_model->insertData('stories',$data_val);
                 
                 $msg = "Story created successfully.";

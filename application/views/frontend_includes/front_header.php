@@ -67,7 +67,7 @@
                             <?php if(isset($menus) && !empty($menus)){
                                 foreach ($menus as $k => $menu){ ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo base_url().'main-category/'.trim($menu->pageUrl); ?>"><?php echo ucfirst($menu->category); ?></a>
+                                <a class="nav-link" href="<?php echo base_url().'lojanlo-category/'.trim($menu->pageUrl); ?>"><?php echo ucfirst($menu->category); ?></a>
                             </li>
                         <?php } } ?>
                           <?php if(isset($subMenus) && !empty($subMenus)){ ?>
@@ -77,7 +77,7 @@
                                      <?php 
                                 foreach ($subMenus as $ks => $submenu) {?>
                                     <li>
-                                         <a class="nav-link" href="<?php echo base_url().'main-category/'.trim($submenu->pageUrl); ?>"><?php echo ucfirst($submenu->category); ?></a>
+                                         <a class="nav-link" href="<?php echo base_url().'lojanlo-category/'.trim($submenu->pageUrl); ?>"><?php echo ucfirst($submenu->category); ?></a>
                                     </li> 
                                        <?php }  ?>
                                 </ul>
@@ -115,61 +115,51 @@
                 </nav>
             </div><!-- end container-fluid -->
         </header><!-- end market-header -->
-        <?php if(empty($segments)):  ?>
+        <?php if(empty($segments)): if(isset($topstories) && !empty($topstories)) :  ?>
 <section class="section first-section">
     <div class="container-fluid">
         <div class="masonry-blog clearfix">
-            <div class="first-slot">
+            <?php foreach ($topstories as $ky => $story) { 
+                    switch ($ky) {
+                        case 0:
+                           $divClass = 'second-slot';
+                            break;
+                        
+                         case 1:
+                           $divClass = 'second-slot';
+                            break;
+                        case 2:
+                           $divClass = 'last-slot';
+                            break;
+                        
+                        default:
+                          $divClass = 'last-slot';
+                            break;
+                    }
+
+                ?>
+            <div class="<?=  $divClass; ?>">
                 <div class="masonry-box post-media">
-                     <img src="<?php echo $frontend_assets; ?>upload/tech_01.jpg" alt="" class="img-fluid">
+                     <img src="<?= base_url().$story->mediumImage; ?>" alt="<?= $story->title; ?>" class="img-fluid">
                      <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
-                                <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">Say hello to real handmade office furniture! Clean & beautiful design</a></h4>
-                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">24 July, 2017</a></small>
-                                <small><a href="tech-author.html" title="">by Amanda</a></small>
+                                <span class="bg-orange"><a href="<?php echo base_url().'lojanlo-category/'.$story->catUrl; ?>" title=""><?= ucfirst($story->category).' ('.$story->subCategory.')';?></a></span>
+                                <h4><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="<?= $story->title; ?>"><?= $story->title; ?></a></h4>
+                                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><?= date('d F,Y',strtotime($story->date));?></a></small>
+                                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Author by: <?= $story->authorBy;  ?></a></small>
+                                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Post by: <?= $story->postBy;  ?></a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
                     </div><!-- end shadow -->
                 </div><!-- end post-media -->
             </div><!-- end first-side -->
+        <?php } ?>
 
-            <div class="second-slot">
-                <div class="masonry-box post-media">
-                     <img src="<?php echo $frontend_assets; ?>upload/tech_02.jpg" alt="" class="img-fluid">
-                     <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-orange"><a href="tech-category-01.html" title="">Gadgets</a></span>
-                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">Do not make mistakes when choosing web hosting</a></h4>
-                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">03 July, 2017</a></small>
-                                <small><a href="tech-author.html" title="">by Jessica</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                     </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end second-side -->
-
-            <div class="last-slot">
-                <div class="masonry-box post-media">
-                     <img src="<?php echo $frontend_assets; ?>upload/tech_03.jpg" alt="" class="img-fluid">
-                     <div class="shadoweffect">
-                        <div class="shadow-desc">
-                            <div class="blog-meta">
-                                <span class="bg-orange"><a href="tech-category-01.html" title="">Technology</a></span>
-                                <h4><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">The most reliable Galaxy Note 8 images leaked</a></h4>
-                                <small><a href="<?php echo base_url().'single-category/lojanlo'; ?>" title="">01 July, 2017</a></small>
-                                <small><a href="tech-author.html" title="">by Jessica</a></small>
-                            </div><!-- end meta -->
-                        </div><!-- end shadow-desc -->
-                     </div><!-- end shadow -->
-                </div><!-- end post-media -->
-            </div><!-- end second-side -->
         </div><!-- end masonry -->
     </div>
 </section>
-<?php else: ?>
+<?php endif; else: ?>
   <div class="page-title lb single-wrapper">
     <div class="container">
         <div class="row">
