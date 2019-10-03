@@ -21,7 +21,13 @@
         </div><!-- end blog-box -->
 
         <hr class="invis">
-         <?php } } ?>
+         <?php } }else{ ?>
+ 
+
+        <hr class="invis">
+
+   
+         <?php } ?>
     </div><!-- end videos -->
 </div><!-- end widget -->
 <?php if($check): ?>

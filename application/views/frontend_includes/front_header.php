@@ -9,13 +9,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Site Metas -->
     <title><?php echo SITE_NAME.'-'.$page_title; ?></title>
-    <meta name="keywords" content="<?php echo isset($keywords) ? $keywords:''; ?>">
+    <meta name="keywords" content="#lojanlo,lojanloappweb,lo jan lo,lo jaan lo,<?php echo isset($keywords) ? $keywords:''; ?>">
     <meta name="description" content="<?php echo isset($description) ? $description:''; ?>">
-    <meta name="author" content="<?php echo isset($author) ? $author:''; ?>">
+    <meta name="author" content="<?php echo isset($author) ? $author:'5insight org.'; ?>">
     <meta http-equiv="refresh" content="1800">
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="<?php echo current_url(); ?>" />
+
+
+    <!-- FB OG Tags start -->
+    <!-- <meta property="fb:app_id" content="1879342772122734" /> -->
+    <meta property="og:title" content="<?php echo $page_title; ?>" />
+    <meta property="og:url" content="<?php echo current_url(); ?>" />
+    <meta property="og:description" content="<?php echo isset($description) ? $description:''; ?>"> 
+    <meta property="og:image" content="<?php echo base_url().((isset($imageUrl) && !empty($imageUrl)) ? $imageUrl:'frontend_assets/images/version/full-logo.png'); ?>">
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="story" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image:url" itemprop="image" content="<?php echo base_url().((isset($imageUrl) && !empty($imageUrl)) ? $imageUrl:'frontend_assets/images/version/full-logo.png'); ?>" />
+<meta property="og:image:type" content="image/png" />
+    <!-- FB OG Tags end -->
+<meta property="og:locale" content="en_GB" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="es_ES" />
+<div id='hidden' style='display:none;'><img src="<?php echo base_url().((isset($imageUrl) && !empty($imageUrl)) ? $imageUrl:'frontend_assets/images/version/full-logo.png'); ?>"></div>
+
     <!-- Site Icons -->
+    <link rel="icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $frontend_assets; ?>images/favicon_io/apple-touch-icon.png">
@@ -24,6 +45,7 @@
     <link rel="manifest" href="<?php echo $frontend_assets; ?>images/favicon_io/site.webmanifest">
     <!-- Design fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $frontend_assets; ?>css/bootstrap.css" rel="stylesheet">
     <!-- FontAwesome Icons core CSS -->
@@ -36,6 +58,16 @@
     <link href="<?php echo $frontend_assets; ?>css/colors.css" rel="stylesheet">
     <!-- Version Tech CSS for this template -->
     <link href="<?php echo $frontend_assets; ?>css/version/lojanlo.css" rel="stylesheet">
+
+    
+
+    <!--  -->
+    <link href="<?php echo $frontend_assets; ?>lojanlo/css/custom.css" rel="stylesheet">
+    <!--  -->
+
+
+
+
     <!-- Dynamic css add -->
     <?php if(!empty($front_styles)) { load_css($front_styles); } //load required page styles ?>
     <!--[if lt IE 9]>
@@ -105,10 +137,10 @@
                                 <a class="nav-link" href="#"><i class="fa fa-youtube-square"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-facebook"></i></a>
+                                <a class="nav-link" href="https://www.facebook.com/lojanlo.appweb"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-instagram"></i></a>
+                                <a class="nav-link" href="https://www.instagram.com/lojanloappweb"><i class="fa fa-instagram"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -149,6 +181,8 @@
                                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><?= date('d F,Y',strtotime($story->date));?></a></small>
                                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Author by: <?= $story->authorBy;  ?></a></small>
                                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Post by: <?= $story->postBy;  ?></a></small>
+                                  <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-eye"></i> <?= $story->viewCount; ?></a></small>
+                                  <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-heart"></i> <?= $story->likeCount; ?></a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
                     </div><!-- end shadow -->
@@ -164,7 +198,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2><i class="<?= isset($row['icon'])? $row['icon']:'';?> bg-orange"></i> <?= isset($row['title'])?ucfirst($row['title']):''; ?> <small class="hidden-xs-down hidden-sm-down"><?= isset($row['subTitle']) ?$row['subTitle'] :''; ?></small></h2>
+                <h2><i class="<?= isset($row['icon'])? $row['icon']:'';?> bg-orange"></i> <?= isset($row['title'])? ($row['title']):''; ?> <small class="hidden-xs-down hidden-sm-down"><?= isset($row['subTitle']) ?$row['subTitle'] :''; ?></small></h2>
             </div><!-- end col -->
             <div class="col-lg-4 col-md-4 col-sm-12 hidden-xs-down hidden-sm-down">
                 <ol class="breadcrumb">

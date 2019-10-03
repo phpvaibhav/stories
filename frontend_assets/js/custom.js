@@ -1,8 +1,8 @@
 /**************************************
     File Name: custom.js
-    Template Name: Tech Blog
+    Template Name: lo ja lo
     Created By: HTML.Design
-    http://themeforest.net/user/wpdestek
+   
 **************************************/
 
 (function($) {
@@ -26,10 +26,10 @@
         interval: 4000
     })
 
-    $(window).load(function() {
+   /* $(window).load(function() {
         $("#preloader").on(500).fadeOut();
         $(".preloader").on(600).fadeOut("slow");
-    });
+    });*/
 
     jQuery(window).scroll(function(){
         if (jQuery(this).scrollTop() > 1) {

@@ -19,6 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * load->view() etc if needed 
  */
 $hook['post_controller_constructor'][] = array(
+    'class' => 'Track_Visitor',
+    'function' => 'visitor_track',
+    'filename' => 'Track_Visitor.php',
+    'filepath' => 'hooks'
+);
+
+$hook['post_controller_constructor'][] = array(
     'class'    => 'maintenance_hook',
     'function' => 'go_offline',
     'filename' => 'maintenance_hook.php',

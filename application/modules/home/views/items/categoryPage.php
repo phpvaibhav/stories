@@ -1,5 +1,5 @@
       <?php $frontend_assets =  base_url().'frontend_assets/';?>
-      <div class="row">
+     
              <?php if(!empty($stories)){ foreach ($stories as $st => $story) { ?>
             <div class="col-md-6">
                 <div class="blog-box">
@@ -18,14 +18,15 @@
                         <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><?= date('d F,Y',strtotime($story->date));?></a></small>
                         <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Author by: <?= $story->authorBy;  ?></a></small>
                         <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Post by: <?= $story->postBy;  ?></a></small>
-                        <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-eye"></i> 0</a></small>
+                        <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-eye"></i> <?= $story->viewCount; ?></a></small>
+                        <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-heart"></i> <?= $story->likeCount; ?></a></small>
                     </div><!-- end meta -->
                 </div><!-- end blog-box -->
             </div><!-- end col -->
-    <?php } }else{ ?>
-            <div class="col-md-12">
-                <center>No result found right now.</center>
-            </div><!-- end col -->
+    <?php } }else{ if($start==0){ ?>
+              <div class="col-md-12">
+                  <center><h4>No More Result Found</h4></center>
+              </div>
 
-               <?php } ?>
-        </div><!-- end row -->
+    <?php }} ?>
+       

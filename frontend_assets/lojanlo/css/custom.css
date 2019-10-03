@@ -1,0 +1,22 @@
+.mr-100{
+    margin-left: 10% !important;
+}
+.mr-200{
+    margin-left: 20% !important;
+}
+.mr-300{
+    margin-left: 30% !important;
+}
+.mr-400{
+    margin-left: 40% !important;
+}
+.mr-500{
+    margin-left: 50% !important;
+}
+.comments-list img {
+    max-width: 50px;
+    margin-right: 20px;
+}
+.err{
+    color: red;
+}

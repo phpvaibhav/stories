@@ -166,6 +166,27 @@ class Adminapi extends Common_Admin_Controller{
 
         $this->response($response);
     } //End function
+   function likeUnlike_post(){
+
+        $storyId    = decoding($this->input->post('storyId'));
+        $userId     = $_SESSION['anonymous'];
+        $data_val = array('storyId'=>$storyId,'userId'=>$userId);
+        $isExist=$this->common_model->is_data_exists('likeStory',$data_val);
+        if(!$isExist){
+            $type = $this->input->post('type');
+       
+            $data_val['isLike'] =1;
+            $this->common_model->insertData('likeStory',$data_val);
+            $isLike=1;
+        }else{
+             $isLike = ($isExist->isLike==1) ? 0 : 1;
+            $this->common_model->updateFields('likeStory',array('isLike' =>$isLike ),$data_val);
+          
+        }
+        $count = $this->common_model->get_total_count('likeStory',array('isLike' =>1,'storyId'=>$storyId));
+         $res= array('isLike' => $isLike,'count'=>$count);
+        $this->response($res);
+    } //End function
 
     // Session store value for frontEnd
     function StoreSession($userData){

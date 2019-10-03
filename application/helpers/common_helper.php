@@ -216,8 +216,10 @@ if (!function_exists('display_placeholder_text')) {
  */
 if (!function_exists('time_elapsed_string')) {
     function time_elapsed_string($datetime, $full = false) {
+        date_default_timezone_set('Asia/Kolkata');
         $now = new DateTime;
         $ago = new DateTime($datetime);
+       
         $diff = $now->diff($ago);
 
         $diff->w = floor($diff->d / 7);
@@ -435,6 +437,51 @@ function get_json_output($data){
 function json_output($data){
     header('Content-type:application/json;charset=utf-8');
     return json_encode($data); exit;
+}
+
+function getMyId(){
+  if(isset($_SESSION[USER_SESS_KEY]['id']) && !empty($_SESSION[USER_SESS_KEY]['id'])){
+    return $_SESSION[USER_SESS_KEY]['id'];
+  }else{
+    return $_SESSION['anonymous'];
+  }
+}
+
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+function countView($pageId){
+    if($_SERVER['HTTP_HOST'] != 'localhost'){
+      $CI = & get_instance(); 
+      $myArr = array();
+      $checkData = $CI->db->get_where('visitors',array('storyId' => $pageId,'anonymous' => getMyId()))->row_array();
+      if(empty($checkData)){
+        $myArr = array(
+          'storyId' => $pageId,
+          'ip' => get_client_ip(),
+          'anonymous' => getMyId(),
+          'agent' => $_SERVER['HTTP_USER_AGENT'],
+        );
+      }
+      !empty($myArr) ? $CI->db->insert('visitors',$myArr) : "";
+      return true;
+    }
 }
 
 /***********  Any new project specific helper method can be added below  ***********/

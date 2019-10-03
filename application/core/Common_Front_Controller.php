@@ -13,6 +13,9 @@ class Common_Front_Controller extends MX_Controller {
         parent::__construct();
         $this->user_session_key = USER_SESS_KEY; //user session key
         $this->tbl_users = USERS; //users table
+        if(!isset($_SESSION['anonymous']) && empty($_SESSION['anonymous'])){
+            $_SESSION['anonymous'] = mt_rand(9999999999,99999999999);
+        }
     }
     
     /**

@@ -1,4 +1,3 @@
-<?php if(!empty($stories)): ?>
 <div class="blog-top clearfix">
         <h4 class="pull-left"><?= $title; ?> <a href="javascript:void(0);"><i class="<?= $icon; ?>"></i></a></h4>
     </div><!-- end blog-top -->
@@ -22,20 +21,16 @@
                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><?= date('d F,Y',strtotime($story->date));?></a></small>
                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Author by: <?= $story->authorBy;  ?></a></small>
                 <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="">Post by: <?= $story->postBy;  ?></a></small>
-                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-eye"></i> 0</a></small>
+                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-eye"></i> <?= $story->viewCount; ?></a></small>
+                <small><a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title=""><i class="fa fa-heart"></i> <?= $story->likeCount; ?></a></small>
             </div><!-- end meta -->
         </div><!-- end blog-box -->
 
         <hr class="invis">
     <?php } }else{ ?>
-        <div class="blog-box row">
-            <div class="col-md-12">
-                 <center>No result found right now.</center>
-            </div><!-- end col -->
-        </div><!-- end blog-box -->
+     
 
         <hr class="invis">
 
          <?php } ?>
     </div><!-- end blog-list -->
-<?php endif; ?>

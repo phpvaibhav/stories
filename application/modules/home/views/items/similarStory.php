@@ -1,9 +1,12 @@
- <div class="row">
+ <div class="custombox clearfix">
+        <h4 class="small-title">You may also like</h4>
+       
+<div class="row">
 <?php if(!empty($stories)){ foreach ($stories as $st => $story) { ?> 
   <div class="col-lg-6">
     <div class="blog-box">
         <div class="post-media">
-            <a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>>" title="<?= $story->title; ?>">
+            <a href="<?php echo base_url().'lojanlo-story/'.$story->storyUrl; ?>" title="<?= $story->title; ?>">
                 <img src="<?= base_url().$story->mediumImage; ?>" alt="" class="img-fluid">
                 <div class="hovereffect">
                     <span class=""></span>
@@ -19,3 +22,4 @@
 </div><!-- end col -->
  <?php } } ?>
    </div><!-- end row -->
+</div>
