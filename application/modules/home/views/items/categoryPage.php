@@ -12,8 +12,9 @@
                         </div><!-- end banner -->
                     </div><!-- end col -->
                 </div><!-- end row -->
+                <hr class="invis">
             </div><!-- end col-md-12 -->
-            <hr class="invis">
+            
                 <!-- add -->
 
 
