@@ -33,6 +33,31 @@ class Home extends Common_Front_Controller {
         $data['topstories'] = $topstories;
     	$this->load->front_render('home', $data, '');
     } 
+    public function allstories(){
+		 $data['page_title'] = "All Stories";
+		$data['title']          = "All Stories";
+		
+		$data['keywords']       = "";
+		$data['description']    = "";
+		$data['author']         = '5insight org.';
+		$row['icon'] = "fa fa-book";
+		$row['title']= 'Stories';
+		$row['subTitle']= "";
+		$data['row'] = $row;
+		$keywords =array();
+		$this->load->model('home_model');
+		$topstories = $this->home_model->get_stories(array('s.status'=>1),array('DATE(s.crd)'=>'desc'),'4');
+		if(!empty($topstories)){
+		foreach ($topstories as $k => $tag) {
+		  $keywords[] = $tag->title;
+		}
+		}
+		$data['keywords']       = !empty($keywords) ? implode(",",$keywords):"";
+		$where = array('status'=>1);
+		$data['categoies']= $this->common_model->getAll('category',$where);
+		$data['front_scripts'] = array('frontend_assets/lojanlo/js/load_more.js');
+		$this->load->front_render('allstories', $data, '');
+	}
     public function contactus() { 
         $data['page_title'] = "Contact us";
         $row = $this->common_model->getsingle('pages',array('pageUrl'=>'contactus'));
@@ -83,7 +108,7 @@ class Home extends Common_Front_Controller {
         $res = $this->common_model->getsingle('category',array('pageUrl'=>$pageId));
         (empty($res)) ? redirect(base_url(),true) : '';
         $data['page_title'] = $res['category'];
-        $row['icon'] = "fa fa-hashtag";
+        $row['icon'] = "fa fa-filter";
         $row['title']= $res['category'];
         $row['subTitle']= "";
         $data['row'] = $row;
@@ -93,7 +118,7 @@ class Home extends Common_Front_Controller {
         $data['description'] ="";
         $data['author'] = '5insight org.';
         $data['front_scripts'] = array('frontend_assets/lojanlo/js/load_more.js');
-         $where = array('categoryId'=>$res['categoryId']);
+         $where = array('categoryId'=>$res['categoryId'],'status'=>1);
         $data['subCategoies']= $this->common_model->getAll('subCategory',$where);
         $this->load->front_render('category', $data, '');
     } 
@@ -104,7 +129,7 @@ class Home extends Common_Front_Controller {
         $this->load->model('home_model');
         $story = $this->home_model->single_story(array('s.status'=>1,'s.storyUrl'=>trim($pageId)));
         (empty($story)) ? redirect(base_url(),true) : '';
-        $row['icon'] = "fa fa-hashtag";
+        $row['icon'] = "fa fa-book";
         $row['title'] = $story['title'];
         $row['subTitle'] = "";
         $data['page_title'] = $story['title'];

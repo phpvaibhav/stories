@@ -96,6 +96,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo base_url(); ?>">Home</a>
                             </li>  
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo base_url().'lojanlo-stories'; ?>">All</a>
+                            </li>  
                             <?php if(isset($menus) && !empty($menus)){
                                 foreach ($menus as $k => $menu){ ?>
                             <li class="nav-item">

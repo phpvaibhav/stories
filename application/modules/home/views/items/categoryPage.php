@@ -1,6 +1,23 @@
       <?php $frontend_assets =  base_url().'frontend_assets/';?>
      
-             <?php if(!empty($stories)){ foreach ($stories as $st => $story) { ?>
+             <?php if(!empty($stories)){ ?>
+                <!-- add -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="banner-spot clearfix">
+                            <div class="banner-img">
+                                <img src="<?php echo $frontend_assets; ?>upload/banner_02.jpg" alt="" class="img-fluid">
+                            </div><!-- end banner-img -->
+                        </div><!-- end banner -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+            </div><!-- end col-md-12 -->
+            <hr class="invis">
+                <!-- add -->
+
+
+            <?php foreach ($stories as $st => $story) { ?>
             <div class="col-md-6">
                 <div class="blog-box">
                     <div class="post-media">

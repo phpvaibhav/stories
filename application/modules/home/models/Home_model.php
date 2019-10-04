@@ -22,7 +22,7 @@ class Home_model extends CI_Model {
         THEN "frontend_assets/upload/tech_blog_01.jpg" ELSE
         concat("uploads/stories/thumb/",s.featuredImage) 
         END) as thumbImage','(select count(visitorId) from visitors as v where v.storyId = s.storyUrl) as viewCount','(select count(likeId) from likeStory as ls where ls.storyId = s.storyId) as likeCount'); //set column field database for datatable orderable
-    var $column_search = array('s.title','s.authorBy','s.isFeatured','c.category'); //set column field database for datatable searchable 
+    var $column_search = array('s.title','s.authorBy','u.fullName','s.isFeatured','c.category','sc.subCategory'); //set column field database for datatable searchable 
     var $order = array('s.storyId' => 'DESC');  // default order
     var $where = array();
     var $group_by = 's.storyId'; 
@@ -46,7 +46,7 @@ class Home_model extends CI_Model {
 		}
 		return $res;
     }//end function  
-  public function get_stories_category($where=array(),$order=array(),$limit=null,$start=null)
+  public function get_stories_category($where=array(),$order=array(),$search='',$limit=null,$start=null)
     {
         $res =array();
         $sel_fields = array_filter($this->column_sel); 
@@ -56,6 +56,30 @@ class Home_model extends CI_Model {
         $this->db->join('subCategory as sc','sc.subCategoryId=s.subCategoryId','left');
         $this->db->join('users as u','u.id=s.postedById','left');
         (!empty($where)) ?$this->db->where($where):""; 
+                $i = 0;
+        foreach ($this->column_search as $emp) // loop column 
+        {
+            if(isset($search) && !empty($search)){
+            $search = $search;
+        } else
+            $search = '';
+        if($search) // if datatable send POST for search
+        {
+            if($i===0) // first loop
+            {
+                $this->db->group_start();
+                $this->db->like(($emp),$search);
+            }
+            else
+            {
+                $this->db->or_like(($emp), $search);
+            }
+
+            if(count($this->column_search) - 1 == $i) //last loop
+                $this->db->group_end(); //close bracket
+        }
+        $i++;
+        }
         !empty($order) ? $this->db->order_by(key($order), $order[key($order)]) :  $this->db->order_by('s.storyId','DESC');
         $this->db->group_by($this->group_by);
         if($limit!='' && $start!=''){

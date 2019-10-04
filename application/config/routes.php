@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
 $route['hidesignup']				= 'admin/signup';
+$route['lojanlo-stories']				= 'home/allstories';
 $route['contact-us']				= 'home/contactus';
 $route['about-us']					= 'home/aboutus';
 $route['term-conditions']					= 'home/termConditions';

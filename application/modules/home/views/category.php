@@ -2,19 +2,28 @@
 <div class="page-wrapper">
     <div class="blog-grid-system">
   
-    <input type="hidden" name="search" id="search" value="<?= encoding($category['categoryId']); ?>">
-    <input type="hidden" name="category" id="category" value="<?= encoding($category['categoryId']); ?>">
-      <div class="row">
-                        <div class="col-md-6">
-                           <select class="form-control" id="subCategory" name="subCategory">
-                                <option value="">Select Sub Category</option>
-                                <?php foreach ($subCategoies as $k => $subcategory) {?>
-                                <option value="<?php echo encoding($subcategory->subCategoryId); ?>"><?php echo $subcategory->subCategory; ?></option>
-                                <?php }?>
-                           </select>
-                        </div>
-                    
-               </div>
+   
+    
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input class="form-control" type="text" name="search" id="search" placeholder="Search" aria-label="Search">
+                <input type="hidden" name="category" id="category" value="<?= encoding($category['categoryId']); ?>">
+              </div> 
+            </div> 
+          
+            <div class="col-md-6">
+              <div class="form-group">
+                <select class="form-control" id="subCategory" name="subCategory">
+                  <option value="">Select Sub Category</option>
+                  <?php foreach ($subCategoies as $k => $subcategory) {?>
+                  <option value="<?php echo encoding($subcategory->subCategoryId); ?>"><?php echo $subcategory->subCategory; ?></option>
+                  <?php }?>
+                </select>
+              </div>    
+            </div>    
+          </div>
+           <hr class="invis3">
 		     <div class="row" id="load_data">
 		         <!--    <div id="categoryWiseStory"></div> -->
                    

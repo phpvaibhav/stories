@@ -73,21 +73,25 @@ class Item extends Common_Front_Controller {
       $this->load->view('items/categoryPage',$result);
     } //end function 
   function categoryStory(){
-      $category   = decoding($this->input->post('category'));
+      $search   = trim($this->input->post('search'));
+      $category   = $this->input->post('category');
+      $category   = !empty($category) ? decoding($category) :'';// decoding($this->input->post('category'));
       $subCategoryId   = $this->input->post('subCategoryId');
       $subCategoryId   = !empty($subCategoryId) ? decoding($subCategoryId) :'';
       $limit   = trim($this->input->post('limit'));
       $start  = trim($this->input->post('start'));
       $where = array('s.status'=>1);
-
-      $where['s.categoryId']= $category;
+	  if(!empty($category)){
+		  $where['s.categoryId']= $category; 
+	  }
+     
       if(!empty($subCategoryId)){
          $where['s.subCategoryId']= $subCategoryId;
       }
      
       $orderBy = array('s.storyId'=>'desc');
      
-      $result['stories'] = $this->home_model->get_stories_category($where,$orderBy,$limit,$start);
+      $result['stories'] = $this->home_model->get_stories_category($where,$orderBy,$search,$limit,$start);
       $result['start'] =$start;
       //pr($result['stories']);
       $this->load->view('items/categoryPage',$result);
@@ -105,6 +109,7 @@ class Item extends Common_Front_Controller {
      
         $this->home_model->addComment($postData);
     } 
+
 
  
 }//end class.php

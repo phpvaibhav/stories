@@ -187,6 +187,21 @@ class Adminapi extends Common_Admin_Controller{
          $res= array('isLike' => $isLike,'count'=>$count);
         $this->response($res);
     } //End function
+        function getsubcategory_post(){
+        $categoryId  = $this->input->post('categoryId');
+   
+        $where = array('categoryId'=>decoding($categoryId),'status'=>1);
+        $dataExist = $this->common_model->getAll('subCategory',$where);
+        if(!empty($dataExist)){
+            foreach($dataExist as $k => $sc){
+                $dataExist[$k]->subCategoryId = encoding($sc->subCategoryId);
+            }
+            $response = array('status'=>SUCCESS,'message'=>ResponseMessages::getStatusCodeMessage(200),'subcategories'=>$dataExist);
+        }else{
+           $response = array('status'=>FAIL,'message'=>"Sub category not found.",'subcategories'=>array());  
+        }
+         $this->response($response);
+    }
 
     // Session store value for frontEnd
     function StoreSession($userData){

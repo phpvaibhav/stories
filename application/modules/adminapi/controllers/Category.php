@@ -92,7 +92,7 @@ class Category extends Common_Admin_Controller{
 
             $action .= '<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
-             $action .= '&nbsp;<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
+             $action .= '<a href="'.$link.'" onclick="categoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->categoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
              $action .= '&nbsp;<a href="'.$link.'" onclick="categoryEdit(this);" data-category="'.$serData->category.'" data-showmenu="'.$serData->showMenu.'" data-categoryid="'.encoding($serData->categoryId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
       /*  $link = base_url().'vehicles/vehicleDetail/'.encoding($serData->vehicleId);
@@ -214,7 +214,7 @@ class Category extends Common_Admin_Controller{
 
             $action .= '<a href="'.$link.'" onclick="subcategoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->subCategoryId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
-             $action .= '&nbsp;<a href="'.$link.'" onclick="subcategoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->subCategoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
+             $action .= '<a href="'.$link.'" onclick="subcategoryStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->subCategoryId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
              $action .= '&nbsp;<a href="'.$link.'" onclick="subcategoryEdit(this);" data-categoryId="'.$serData->categoryId.'" data-subcategory="'.$serData->subCategory.'"  data-subcategoryid="'.encoding($serData->subCategoryId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
       /*  $link = base_url().'vehicles/vehicleDetail/'.encoding($serData->vehicleId);

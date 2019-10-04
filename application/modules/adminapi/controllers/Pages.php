@@ -103,7 +103,7 @@ class Pages extends Common_Admin_Controller{
 
             $action .= '<a href="'.$link.'" onclick="pageStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-danger btn-circle" title="status"><i class="fa fa-check" aria-hidden="true"></i></a>';
         }else{
-             $action .= '&nbsp;<a href="'.$link.'" onclick="pageStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
+             $action .= '<a href="'.$link.'" onclick="pageStatus(this);" data-message="You want to change status!" data-useid="'.encoding($serData->pageId).'"  class="btn btn-success btn-circle" title="status"><i class="fa fa-times" aria-hidden="true"></i></a>';
         }
         $detailUrl = base_url().'pages/addPage/'.encoding($serData->pageId);
              $action .= '&nbsp;<a href="'.$detailUrl.'"  data-pageId="'.encoding($serData->pageId).'"  class="btn btn-primary btn-circle" title="Edit"><i class="fa fa-edit" aria-hidden="true"></i></a>';
