@@ -484,4 +484,41 @@ function countView($pageId){
     }
 }
 
+function setcookie1($id){
+  setcookie('user_id', $id, time() + ((86400 * 30)*365), '/');
+}
+
+function getcookie1(){
+  if(!isset($_COOKIE['user_id'])) {
+    return '';
+  } else {
+    return $_COOKIE['user_id'];
+  }
+}
+function number_format_short( $n ) {
+  $n = is_numeric($n) ? $n : 0;
+  if ($n >= 0 && $n < 1000) {
+    // 1 - 999
+    $n_format = floor($n);
+    $suffix = '';
+  } else if ($n >= 1000 && $n < 1000000) {
+    // 1k-999k
+    $n_format = floor($n / 1000);
+    $suffix = 'K+';
+  } else if ($n >= 1000000 && $n < 1000000000) {
+    // 1m-999m
+    $n_format = floor($n / 1000000);
+    $suffix = 'M+';
+  } else if ($n >= 1000000000 && $n < 1000000000000) {
+    // 1b-999b
+    $n_format = floor($n / 1000000000);
+    $suffix = 'B+';
+  } else if ($n >= 1000000000000) {
+    // 1t+
+    $n_format = floor($n / 1000000000000);
+    $suffix = 'T+';
+  }
+
+  return !empty($n_format . $suffix) ? $n_format . $suffix : 0;
+}//end function
 /***********  Any new project specific helper method can be added below  ***********/

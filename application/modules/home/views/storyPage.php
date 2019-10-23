@@ -21,8 +21,8 @@
             <small><a href="<?php echo base_url().'lojanlo-story/'.$story['storyUrl']; ?>" title=""><?= date('d F,Y',strtotime($story['date']));?></a></small>
             <small><a href="<?php echo base_url().'lojanlo-story/'.$story['storyUrl']; ?>" title="">Author by: <?= $story['authorBy'];  ?></a></small>
             <small><a href="<?php echo base_url().'lojanlo-story/'.$story['storyUrl']; ?>" title="">Post by: <?= $story['postBy'];  ?></a></small>
-            <small><a href="javascript:void(0);" title=""><i class="fa fa-eye"></i> <?= $story['viewCount']; ?></a></small>
-            <small><a href="javascript:void(0);" title=""><i style="color:<?php echo $story['islikeyou'] ? 'red':'#999999';   ?>" class="fa fa-heart likecolr_<?php echo encoding($story['storyId']); ?>"></i><b class="like_<?php echo encoding($story['storyId']); ?>"> <?= $story['likeCount']; ?></b> </a></small>
+            <small><a href="javascript:void(0);" title=""><i class="fa fa-eye"></i> <?= number_format_short($story['viewCount']); ?></a></small>
+            <small><a href="javascript:void(0);" title=""><i style="color:<?php echo $story['islikeyou'] ? 'red':'#999999';   ?>" class="fa fa-heart likecolr_10"></i><b class="like_<?php echo encoding($story['storyId']); ?>"> <?= number_format_short($story['likeCount']); ?></b> </a></small>
         </div>
         <!-- end meta -->
         <div class="post-sharing">
@@ -67,6 +67,18 @@
         <img src="<?= base_url().$story['featuredImage']; ?>" alt="<?= $story['title']; ?>" class="img-fluid">
     </div>
     <!-- end media -->
+    <!-- ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-6590198198242605"
+     data-ad-slot="8731132415"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <!-- ads -->
     <div class="blog-content">
         <div class="pp">
             <?php echo $story['description']; ?>
@@ -84,7 +96,7 @@
             </div> --><!-- end meta -->
         <div class="post-sharing">
             <ul class="list-inline">
-                <li><a href="javascript:void(0);" class="btn btn-info likeSet" data-type="1" ><i style="color:<?php echo $story['islikeyou'] ? 'red':'#999999';   ?>" class="fa fa-heart likecolr_<?php echo encoding($story['storyId']); ?>"></i> <span class="down-mobile">Like</span> (<span class="like_<?php echo encoding($story['storyId']); ?>"><?= $story['likeCount']; ?></span>)</a></li>
+                <li><a href="javascript:void(0);" class="btn btn-info likeSet" data-type="1" ><i style="color:<?php echo $story['islikeyou'] ? 'red':'#999999';   ?>" class="fa fa-heart likecolr_10"></i> <span class="down-mobile">Like</span> (<span class="like_11"><?= $story['likeCount']; ?></span>)</a></li>
                
               <!--   <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li> -->
             </ul>
@@ -130,12 +142,24 @@
     <!-- end title -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="banner-spot clearfix">
-                <div class="banner-img">
-                    <img src="<?= $frontend_assets?>upload/banner_01.jpg" alt="" class="img-fluid">
-                </div>
+           <!--  <div class="banner-spot clearfix">
+                <div class="banner-img"> -->
+                   <!--  <img src="<?= $frontend_assets?>upload/banner_01.jpg" alt="" class="img-fluid"> -->
+                   <!-- ads artical -->
+                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6590198198242605"
+     data-ad-slot="5686166673"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                   <!-- ads artical -->
+             <!--    </div> -->
                 <!-- end banner-img -->
-            </div>
+          <!--   </div> -->
             <!-- end banner -->
         </div>
         <!-- end col -->

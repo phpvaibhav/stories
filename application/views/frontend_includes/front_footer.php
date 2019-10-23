@@ -4,21 +4,47 @@
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="sidebar">
                 <div class="widget">
-                    <div class="banner-spot clearfix">
-                        <div class="banner-img">
-                            <img src="<?php echo $frontend_assets; ?>upload/banner_07.jpg" alt="" class="img-fluid">
-                        </div><!-- end banner-img -->
-                    </div><!-- end banner -->
+                 <!--    <div class="banner-spot clearfix">
+                        <div class="banner-img"> -->
+                        <!--     <img src="<?php echo $frontend_assets; ?>upload/banner_07.jpg" alt="" class="img-fluid"> -->
+                        <!-- ads -->
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- side vertical ads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6590198198242605"
+     data-ad-slot="6843335673"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                        <!-- ads -->
+                        <!-- </div> --><!-- end banner-img -->
+                   <!--  </div> --><!-- end banner -->
                 </div><!-- end widget -->
                   <!----side menu----->
                 <div id="sidePage"></div>
                 <!----side menu----->
                  <div class="widget">
-                    <div class="banner-spot clearfix">
-                        <div class="banner-img">
-                            <img src="<?php echo $frontend_assets; ?>upload/banner_03.jpg" alt="" class="img-fluid">
-                        </div><!-- end banner-img -->
-                    </div><!-- end banner -->
+                  <!--   <div class="banner-spot clearfix">
+                        <div class="banner-img"> -->
+                          <!--   <img src="<?php echo $frontend_assets; ?>upload/banner_03.jpg" alt="" class="img-fluid"> -->
+                          <!-- google ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- footer square -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-6590198198242605"
+     data-ad-slot="5522515145"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                          <!-- google ads -->
+                       <!--  </div> --><!-- end banner-img -->
+                  <!--   </div> --><!-- end banner -->
                 </div><!-- end widget -->
             </div><!-- end sidebar -->
         </div><!-- end col -->
@@ -33,7 +59,7 @@
                 <div class="col-lg-7">
                     <div class="widget">
                         <div class="footer-text text-left">
-                            <a href="<?php echo base_url(); ?>"><img src="<?php echo $frontend_assets; ?>images/version/full-logo.png" alt="" class="img-fluid"></a>
+                            <a href="<?php echo base_url(); ?>"><img src="<?php echo $frontend_assets; ?>images/version/full-logo(200x50).png" alt="" class="img-fluid"></a>
                             <p>Lojanlo is a sharing blog, we sharing stories, news and articles.</p>
                             <div class="social">
                                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              

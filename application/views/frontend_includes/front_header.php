@@ -7,8 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Site Metas -->
     <title><?php echo SITE_NAME.'-'.$page_title; ?></title>
+     <!-- Site Icons -->
+    <link rel="icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $frontend_assets; ?>images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo $frontend_assets; ?>images/favicon_io/site.webmanifest">
+    <!-- Design fonts -->
     <meta name="keywords" content="#lojanlo,lojanloappweb,lo jan lo,lo jaan lo,<?php echo isset($keywords) ? $keywords:''; ?>">
     <meta name="description" content="<?php echo isset($description) ? $description:''; ?>">
     <meta name="author" content="<?php echo isset($author) ? $author:'5insight org.'; ?>">
@@ -35,15 +45,7 @@
 <meta property="og:locale:alternate" content="es_ES" />
 <div id='hidden' style='display:none;'><img src="<?php echo base_url().((isset($imageUrl) && !empty($imageUrl)) ? $imageUrl:'frontend_assets/images/version/full-logo.png'); ?>"></div>
 
-    <!-- Site Icons -->
-    <link rel="icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon.ico" type="image/x-icon" />
-
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $frontend_assets; ?>images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $frontend_assets; ?>images/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo $frontend_assets; ?>images/favicon_io/site.webmanifest">
-    <!-- Design fonts -->
+   
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
 
     <!-- Bootstrap core CSS -->
@@ -79,9 +81,11 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
     
-   
+   <script data-ad-client="ca-pub-6590198198242605" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 
+  
 </head>
-<body data-base-url="<?php echo base_url(); ?>">
+<body data-base-url="<?php echo base_url(); ?>" oncopy="return false" oncut="return false" onpaste="return false">
     <?php $segments        = $this->uri->segment_array(); ?>
     <div id="wrapper">
         <header class="tech-header header">

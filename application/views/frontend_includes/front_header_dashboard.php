@@ -96,6 +96,9 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.bootstrap3.css">--> 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script data-ad-client="ca-pub-6590198198242605" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
   </head>
   <body ng-app="myAppAfterLogin" id="OverFlow" class="iframe-container vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-gradient-x-red-pink" data-col="2-columns" data-base-url="<?php echo base_url() ?>">
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
